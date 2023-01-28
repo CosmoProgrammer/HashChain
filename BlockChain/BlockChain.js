@@ -1,4 +1,5 @@
 const SHA256 = require("crypto-js/sha256");
+const fs = require("fs");
 
 class Block {
     constructor(index, timeStamp, content, prevHash='') {
@@ -49,6 +50,16 @@ class BlockChain {
         }
         this.chain.splice(index)
     }
+
+    saveBlockChainToFile(){
+        let data = JSON.stringify(this.chain);
+        fs.writeFileSync('blockchain.json', data)
+    }
+
+    retrieveBlockChainFromFile(){
+        let data = fs.readFileSync('blockchain.json')
+        this.chain = JSON.parse(data)
+    }
 }
 
 class SupplyChain extends BlockChain {
@@ -86,6 +97,16 @@ class SupplyChain extends BlockChain {
         })
         this.addItem(newItem)
     }
+
+    getItemsAtLocation(location){
+        let itemAtLocation = []
+        this.chain.forEach(block => {
+            if(block.content.location == location){
+                itemAtLocation.push(block.content)
+            }
+        })
+        return itemAtLocation
+    }
 }
 
 
@@ -97,7 +118,7 @@ let item1 = {
     description: "All purpose flour",
     quantity: 10,
     expirationDate: "2022-12-31",
-    source_info: "Local farmer",
+    sourceInfo: "Local farmer",
     cost: 3,
     compliance: "Organic"
 }  
@@ -108,13 +129,13 @@ let item2 = {
     description: "Granulated sugar",
     quantity: 5,
     expirationDate: "2022-11-30",
-    source_info: "Local supplier",
+    sourceInfo: "Local supplier",
     cost: 2,
     compliance: "Non-GMO"
 }
 myBlockChain.addItem(item1)
 myBlockChain.addItem(item2)
-console.log(myBlockChain.findItem(1))
+//console.log(myBlockChain.findItem(1))
 myBlockChain.combineItems({
     id: 3,
     location: "Living Room",
@@ -122,8 +143,25 @@ myBlockChain.combineItems({
     description: "Granulated sugar",
     quantity: 5,
     expirationDate: "2022-11-30",
-    source_info: "Local supplier",
+    sourceInfo: "Local supplier",
     cost: 2,
     compliance: "Non-GMO"
 }, 1, 2)
-console.log(myBlockChain.chain)
+myBlockChain.combineItems({
+    id: 4,
+    location: "Living Room",
+    name: "Sugar",
+    description: "Granulated sugar",
+    quantity: 5,
+    expirationDate: "2022-11-30",
+    sourceInfo: "Local supplier",
+    cost: 2,
+    compliance: "Non-GMO"
+}, 2,3)
+for(let i=0; i<myBlockChain.chain.length; i++){
+    console.log(myBlockChain.chain[i])
+    if(myBlockChain.chain[i]['content']['componentItems']){
+        console.log(myBlockChain.chain[i]['content']['componentItems'])
+    }
+}
+//myBlockChain.saveBlockChainToFile()

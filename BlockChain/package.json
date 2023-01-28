@@ -1,11 +1,10 @@
 {
-  "name": "backend",
+  "name": "blockchain",
   "version": "1.0.0",
   "description": "",
-  "main": "Backend.js",
+  "main": "BlockChainSkeleton.js",
   "dependencies": {
-    "axois": "0.0.1-security",
-    "express": "^4.18.2",
+    "crypto-js": "^4.1.1",
     "fs": "^0.0.1-security"
   },
   "devDependencies": {},

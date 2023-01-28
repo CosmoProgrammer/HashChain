@@ -17,6 +17,21 @@ class SupplyChain extends BlockChain {
         return null;
     }
 
+    changeItemLocation(itemId, newLocation) {
+        let itemToUpdate;
+        this.chain.forEach(block => {
+            block.data.forEach(item => {
+                if (item.id === itemId) {
+                    itemToUpdate = item;
+                    itemToUpdate.location = newLocation;
+                }
+            });
+        });
+        let newBlock = new Block(Date.now(), [itemToUpdate]);
+        this.addBlock(newBlock);
+    }
+    
+
     combineItems(newItemDetails, ...itemIds){
         let newItem = {
             id: newItemDetails['id'],

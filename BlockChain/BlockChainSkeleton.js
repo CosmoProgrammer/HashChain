@@ -1,4 +1,5 @@
 const SHA256 = require("crypto-js/sha256");
+const {v4 : uuidv4} = require('uuid')
 const fs = require("fs");
 
 class Block {
@@ -59,6 +60,10 @@ class BlockChain {
     retrieveBlockChainFromFile(){
         let data = fs.readFileSync(filepath)
         this.chain = JSON.parse(data)
+    }
+
+    createUniqueID(){
+        return uuidv4()
     }
 }
 

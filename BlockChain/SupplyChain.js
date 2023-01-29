@@ -4,8 +4,12 @@ class SupplyChain extends BlockChain {
     constructor(){ super() }
 
     addItem(item){
+        let itemToAdd = item
+        let id = this.createUniqueID()
+        itemToAdd.id = id
         const block = new Block(this.chain.length, new Date, item)
         this.addBlock(block)
+        return id
     }
 
     findItem(id){
@@ -34,7 +38,6 @@ class SupplyChain extends BlockChain {
 
     combineItems(newItemDetails, ...itemIds){
         let newItem = {
-            id: newItemDetails['id'],
             location: newItemDetails['location'],
             name: newItemDetails['name'],
             description: newItemDetails['description'],
@@ -48,7 +51,17 @@ class SupplyChain extends BlockChain {
             let item = this.findItem(itemId)
             newItem.componentItems.push(item)
         })
-        this.addItem(newItem)
+        let id = this.addItem(newItem)
+        return id
+    }
+
+    convertItem(itemDetails, oldItemId) {
+        let newItem = itemDetails
+        newItem.componentItems = []
+        let oldItem = this.findItem(oldItemId)
+        newItem.componentItems.push(oldItem)
+        let id = this.addItem(newItem)
+        return id
     }
 
     getItemsAtLocation(location){
@@ -64,57 +77,82 @@ class SupplyChain extends BlockChain {
 
 
 let myBlockChain = new SupplyChain
+//Every item has an unique id. For example, this particular batch of rice from this farm has one id
 let item1 = {
-    id: 1,
-    location: "Kitchen",
-    name: "Flour",
-    description: "All purpose flour",
-    quantity: 10,
-    expirationDate: "2022-12-31",
-    sourceInfo: "Local farmer",
-    cost: 3,
-    compliance: "Organic"
+    location: "Peril Farm",
+    name: "Rice grains",
+    description: "Rice grains",
+    quantity: '500',
+    expirationDate: "12/3/23",
+    sourceInfo: "Farm",
+    cost: 1000,
+    compliance: {
+        temperature: (temp) => temp<=20,
+        moisture: (moisture) => moisture<=60
+    }
 }  
 let item2 = {
-    id: 2,
-    location: "Living Room",
-    name: "Sugar",
-    description: "Granulated sugar",
-    quantity: 5,
-    expirationDate: "2022-11-30",
-    sourceInfo: "Local supplier",
-    cost: 2,
-    compliance: "Non-GMO"
+    location: "Rice Refinary",
+    name: "Rice Flour",
+    description: "Rice Flour",
+    quantity: '500 g',
+    expirationDate: "12/4/23",
+    sourceInfo: "Refinary",
+    cost: 1500,
+    compliance: {
+        temperature: (temp) => temp<=30,
+        moisture: (moisture) => moisture<=30
+    }
 }
-myBlockChain.addItem(item1)
-myBlockChain.addItem(item2)
-//console.log(myBlockChain.findItem(1))
-myBlockChain.combineItems({
-    id: 3,
-    location: "Living Room",
-    name: "Sugar",
-    description: "Granulated sugar",
-    quantity: 5,
-    expirationDate: "2022-11-30",
-    sourceInfo: "Local supplier",
-    cost: 2,
-    compliance: "Non-GMO"
-}, 1, 2)
-myBlockChain.combineItems({
-    id: 4,
-    location: "Living Room",
-    name: "Sugar",
-    description: "Granulated sugar",
-    quantity: 5,
-    expirationDate: "2022-11-30",
-    sourceInfo: "Local supplier",
-    cost: 2,
-    compliance: "Non-GMO"
-}, 2,3)
+let item3 = {
+    location: "Sugur Factory",
+    name: "Sugur",
+    description: "Sugur",
+    quantity: '100 g',
+    expirationDate: "12/12/23",
+    sourceInfo: "Factory",
+    cost: 500,
+    compliance: {
+        temperature: (temp) => temp<=80,
+        moisture: (moisture) => moisture<=10
+    }
+}  
+let item4 = {
+    location: "Diary Farm",
+    name: "Milk",
+    description: "Milk",
+    quantity: '1 L',
+    expirationDate: "1/2/23",
+    sourceInfo: "Farm",
+    cost: 100,
+    compliance: {
+        temperature: (temp) => temp<=30,
+        moisture: (moisture) => moisture<=100
+    }
+}  
+let id1 = myBlockChain.addItem(item1)
+let id3 = myBlockChain.addItem(item3)
+let id4 = myBlockChain.addItem(item4)
+let id2 = myBlockChain.convertItem(item2,id1)
+let id5 = myBlockChain.combineItems({
+    id: 5,
+    location: "Bakery",
+    name: "Cake",
+    description: "Cake",
+    quantity: '1',
+    expirationDate: "2/1/23",
+    sourceInfo: "Bakery",
+    cost: 1000,
+    compliance: {
+        temperature: (temp) => temp<=30,
+        moisture: (moisture) => moisture<=30
+    }
+}, id2,id3,id4)
 for(let i=0; i<myBlockChain.chain.length; i++){
+    console.log("******************************************************************")
     console.log(myBlockChain.chain[i])
     if(myBlockChain.chain[i]['content']['componentItems']){
         console.log(myBlockChain.chain[i]['content']['componentItems'])
     }
+    console.log("******************************************************************")
 }
-//myBlockChain.saveBlockChainToFile()

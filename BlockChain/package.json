@@ -5,7 +5,8 @@
   "main": "BlockChainSkeleton.js",
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {},
   "scripts": {

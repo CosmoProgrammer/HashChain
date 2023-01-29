@@ -4,11 +4,20 @@ const {Block, BlockChain} = require("./BlockChainSkeleton.js")
 class UserChain extends BlockChain {
     constructor() { super() }
 
-    addUser(user) {
+    addUser(user,cond=false) {
         let hashedSaltedUser = user
-        hashedSaltedUser.password = SHA256(hashedSaltedUser.password)
+        let id = hashedSaltedUser.id
+        if(cond==false) {
+            id = this.createUniqueID()
+            hashedSaltedUser.id = id
+        }
+        let toHash = hashedSaltedUser.password
+        console.log(toHash === 'qwerty')
+        console.log(SHA256(toHash) === SHA256('qwerty'))
+        hashedSaltedUser.password = SHA256(toHash)
         const block = new Block(this.chain.length, new Date, hashedSaltedUser)
         this.addBlock(block)
+        return id
     }
 
     findUser(username){
@@ -23,6 +32,7 @@ class UserChain extends BlockChain {
     verifyUser(username,password){
         let user = this.findUser(username)
         let hashedSaltedPassword = SHA256(password)
+        console.table([hashedSaltedPassword,user.password, password])
         if(hashedSaltedPassword == user.password) {
             return true
         } else return false 
@@ -47,16 +57,17 @@ class UserChain extends BlockChain {
             newfromBlock.deposit = newfromBlock.deposit - amt
             newtoBlock = toBlock
             newtoBlock.deposit = newtoBlock.deposit + amt
-            this.addUser(newfromBlock)
-            this.addUser(newtoBlock)
+            this.addUser(newfromBlock,true)
+            this.addUser(newtoBlock,true)
         } else return "Not enough deposit"
     }
 
 }
 
 let myBlockChain = new UserChain
-myBlockChain.addUser({'id':1, 'username':'Anirudh', 'password':'qwerty', 'deposit':20})
-myBlockChain.addUser({'id':2, 'username':"Laaksh", 'password': '123456','deposit':10})
-myBlockChain.transaction(1,2,10)
+let id1 = myBlockChain.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
+let id2 = myBlockChain.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
+myBlockChain.transaction(id1,id2,10)
 console.log(myBlockChain.chain)
 console.log(myBlockChain.verifyUser('Anirudh','qwerty'))
+console.log(SHA256('qwerty'))

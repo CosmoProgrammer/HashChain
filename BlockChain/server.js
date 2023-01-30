@@ -26,5 +26,11 @@ app.get('/sendItem/:item', (req, res) =>{
     console.log(item)
 })
 
+app.get('/login/:cred', (req, res) =>{
+    let cred = JSON.parse(req.body.cred)
+    console.log(cred)
+    res.send(true)
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}`)); 
 

@@ -1,5 +1,16 @@
 import './App.css';
-import "./containers/login"
+import "react-toastify/dist/ReactToastify.css";
+import { Routes as Switch, Route } from 'react-router-dom';
 import Login from './containers/login';
 
-export default Login;
+function App() {
+    return (
+      <>
+      <Switch>
+        <Route path="/" exact element={ <Login /> } />
+      </Switch>
+      </>
+    );
+  }
+  
+  export default App;

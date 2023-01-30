@@ -46,10 +46,6 @@ function Login(){
     }
     };
 
-<<<<<<< HEAD
-//JSX-need someone else to work on this
-=======
->>>>>>> 22a2328342c848df18ae8a057b6855b4e91db7a6
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>

@@ -156,3 +156,5 @@ for(let i=0; i<myBlockChain.chain.length; i++){
     }
     console.log("******************************************************************")
 }
+
+module.exports = { SupplyChain }

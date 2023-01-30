@@ -68,3 +68,5 @@ let id2 = myBlockChain.addUser({'username':"Laaksh", 'password': '123456','depos
 myBlockChain.transaction(id1,id2,10)
 console.log(myBlockChain.chain)
 console.log(myBlockChain.verifyUser('Laaksh','1234356'))
+
+module.exports = { UserChain }

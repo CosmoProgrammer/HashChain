@@ -8,7 +8,11 @@ class SupplyChain extends BlockChain {
         let id = this.createUniqueID()
         itemToAdd.id = id
         const block = new Block(this.chain.length, new Date, item)
+        if(this.isChainTampered()){
+            this.retrieveBlockChainFromFile('UserChain.json')
+        }
         this.addBlock(block)
+        this.saveBlockChainToFile('UserChain.json')
         return id
     }
 

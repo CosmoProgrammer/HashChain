@@ -15,7 +15,11 @@ class UserChain extends BlockChain {
         }
         if(typeof hashedSaltedUser.password == 'string'){ hashedSaltedUser.password = SHA256(hashedSaltedUser.password) }
         const block = new Block(this.chain.length, new Date, hashedSaltedUser)
+        if(this.isChainTampered()){
+            this.retrieveBlockChainFromFile('UserChain.json')
+        }
         this.addBlock(block)
+        this.saveBlockChainToFile('UserChain.json')
         return id
     }
 

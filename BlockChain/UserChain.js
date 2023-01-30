@@ -1,4 +1,6 @@
 const SHA256 = require("crypto-js/sha256");
+const crypto = require('crypto');
+const hash = crypto.createHash('sha256');
 const {Block, BlockChain} = require("./BlockChainSkeleton.js")
 
 class UserChain extends BlockChain {
@@ -11,10 +13,7 @@ class UserChain extends BlockChain {
             id = this.createUniqueID()
             hashedSaltedUser.id = id
         }
-        let toHash = hashedSaltedUser.password
-        console.log(toHash === 'qwerty')
-        console.log(SHA256(toHash) === SHA256('qwerty'))
-        hashedSaltedUser.password = SHA256(toHash)
+        if(typeof hashedSaltedUser.password == 'string'){ hashedSaltedUser.password = SHA256(hashedSaltedUser.password) }
         const block = new Block(this.chain.length, new Date, hashedSaltedUser)
         this.addBlock(block)
         return id
@@ -32,10 +31,9 @@ class UserChain extends BlockChain {
     verifyUser(username,password){
         let user = this.findUser(username)
         let hashedSaltedPassword = SHA256(password)
-        console.table([hashedSaltedPassword,user.password, password])
-        if(hashedSaltedPassword == user.password) {
+        if(hashedSaltedPassword == user.password.toString()) {
             return true
-        } else return false 
+        } else { return false }
     }
 
     transaction(from, to, amt) {
@@ -69,5 +67,4 @@ let id1 = myBlockChain.addUser({'username':'Anirudh', 'password':'qwerty', 'depo
 let id2 = myBlockChain.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
 myBlockChain.transaction(id1,id2,10)
 console.log(myBlockChain.chain)
-console.log(myBlockChain.verifyUser('Anirudh','qwerty'))
-console.log(SHA256('qwerty'))
+console.log(myBlockChain.verifyUser('Laaksh','1234356'))

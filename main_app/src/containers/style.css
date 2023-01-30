@@ -1,6 +1,6 @@
 @font-face {
   font-family: newfont1;
-  src: url(C:\Users\pkd56\Downloads\Noto_Sans\NotoSans-Black.ttf);
+  src: url(C:\Users\pkd56\Downloads\Helvetica-Font\helvetica-compressed.otf);
 }
 
 .app {
@@ -29,7 +29,7 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 20px;
   background: #01d28e;
-  border: 1px solid #01d28e;
+  border: 1px solid #3c01d2;
   color: #fff;
   padding: 10px 20px;
   border-radius: 8px;
@@ -50,7 +50,7 @@ input[type="submit"]:hover {
 }
 
 .login-form {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(211, 10, 10);
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;

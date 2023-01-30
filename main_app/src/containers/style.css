@@ -1,5 +1,6 @@
 @font-face {
   font-family: newfont1;
+  src: url(C:\Users\pkd56\Downloads\Helvetica-Font\Helvetica.ttf);
 }
 
 .app {
@@ -12,7 +13,9 @@
   gap: 20px;
   height: 100vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #f8f9fd;
+  background-image: url(C:\Users\pkd56\Downloads\bgpic.jpg);
+  background-position: center;
+  background-size: cover;
   font-family: newfont1;
 }
 
@@ -27,8 +30,8 @@ input[type="submit"] {
   margin-top: 10px;
   cursor: pointer;
   font-size: 20px;
-  background: #01d28e;
-  border: 1px solid #01d28e;
+  background: #5900ff;
+  border: 1px solid #01d282;
   color: #fff;
   padding: 10px 20px;
   border-radius: 8px;
@@ -36,7 +39,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #2e00fc;
+  background-color: rgb(25, 25, 170);
   font-family: newfont1;
 }
 
@@ -84,6 +87,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: black;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

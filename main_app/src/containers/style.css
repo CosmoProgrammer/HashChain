@@ -1,5 +1,11 @@
+@font-face {
+  font-family: newfont1;
+  src: url(C:\Users\pkd56\Downloads\Noto_Sans\NotoSans-Black.ttf);
+}
+
 .app {
-  font-family: sans-serif;
+  font-family: newfont1;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,10 +14,12 @@
   height: 100vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: #f8f9fd;
+  font-family: newfont1;
 }
 
 input[type="text"],
 input[type="password"] {
+  width: 70%;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -19,26 +27,35 @@ input[type="password"] {
 input[type="submit"] {
   margin-top: 10px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   background: #01d28e;
   border: 1px solid #01d28e;
   color: #fff;
   padding: 10px 20px;
+  border-radius: 8px;
+  font-family: newfont1;
 }
 
 input[type="submit"]:hover {
-  background: #6cf0c2;
+  background: #2e00fc;
+  font-family: newfont1;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
 }
 
 .login-form {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
+  width: 50%;
+  height: 50%;
 }
 
 .list-container {
@@ -51,7 +68,7 @@ input[type="submit"]:hover {
 }
 
 .title {
-  font-size: 25px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
@@ -69,7 +86,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

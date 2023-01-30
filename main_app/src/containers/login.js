@@ -1,50 +1,37 @@
 import React,{useState} from "react";
 
 import "./style.css"; 
-
+//port 7863/Login/
 
 function Login(){
     const[errorMessages,setErrorMessages] = useState({});
     const[submitted,setsubmitted] = useState(false);
-    
-
-    const test_database = [
-        {
-            username : "EMPLOYEE1",
-            password : "PASSWORD1"
-        },
-        {
-            username: "EMPLOYEE2",
-            password: "PASSWORD2"
-        }
-    ]; //TO:DO link with proper database
-
     const errors = {
         entered_username:"invalid username",
         entered_password:"invalid password"
 
     };
-
     const handleonSumbit = (event) => {
         event.preventDefault();
-        var{entered_username,entered_password} = document.forms[0];
-
-    
-    const ENTERED_DATA = test_database.find((user) => user.username === entered_username);
-
-    if(ENTERED_DATA){
-        if(ENTERED_DATA.password !== entered_password.value){
-            setErrorMessages({name:"entered_password",message:errors.entered_password})
-        }
-        else{
-            setsubmitted(true);
-        }
-
-    }
-    else{ 
-        setErrorMessages({name:"entered_username", message:errors.entered_username})
-    }
+        let credentials = {'username':entered_username,'password':entered_username};
+        new_request = new XMLHttpRequest(); 
+        new_request.onreadystatechange = function(){
+          if(new_request.readyState===4 && new_request.status===200){
+              if(this.responseText==='false' || this.responseText===false){
+                  localStorage.setItem('authenticated', this.responseText)
+              } else{
+                  localStorage.setItem('authenticated', true);
+                  let tempVar = JSON.parse(this.responseText);
+                  localStorage.setItem('username', tempVar['username']);
+                  localStorage.setItem('userID', tempVar['userID']);
+                  props.history.push("/onlyAuthorizedAllowedHere/home")
+              }
+          }   
+      }
+      request.open('GET', 'http://localhost:7863/login/'+JSON.stringify(credentials), true);
+      request.send();
     };
+    
 
 //JSX-need someone else to work on this
   const renderErrorMessage = (name) =>

@@ -20,7 +20,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/sendItem/:item', (req, res) =>{
-    var item = 
+    var itemTemp = req.params.item
+    var item = JSON.stringify(item)
+    res.send(item)
+    console.log(item)
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); 

@@ -11,11 +11,12 @@ function Login(){
         entered_password : "password does not match"
     }; 
 
-    const HandleOnSubmit = (event){
+    const HandleOnSubmit = (event) => {
         event.preventDefault();
         var new_request = new XMLHttpRequest();
         var creds = {'username':entered_username,'password':password};
         var{entered_username,entered_password} = document.forms[0];
+        const ENTERED_DATA = 
         
     }
 }

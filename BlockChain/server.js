@@ -8,6 +8,15 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
+const { SupplyChainClass } = require('./SupplyChain')
+const { UserChainClass } = require('./UserChain')
+
+SupplyChain = new SupplyChainClass
+UserChain = new UserChainClass
+
+let id1 = UserChain.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
+let id2 = UserChain.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
+
 app.get('/', (req, res) => {
     var username = JSON.parse(req.body.username)
     var pswd = JSON.parse(req.body.password)
@@ -24,6 +33,12 @@ app.get('/sendItem/:item', (req, res) =>{
     var item = JSON.stringify(item)
     res.send(item)
     console.log(item)
+})
+
+app.get('/login/:cred', (req, res) =>{
+    let cred = JSON.parse(req.body.cred)
+    console.log(cred)
+    res.send(true)
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); 

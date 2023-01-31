@@ -11,6 +11,7 @@ function Login(){
     var credentials = {'username':entered_username,'password':entered_password};
     request.onreadystatechange = function(){
       if(request.readyState===4 && request.status ===200){
+        console.log("In the recieving function")
         if(this.responseText==='false' || this.responseText === false){
           localStorage.setItem('authenticated',this.responseText);
         }

@@ -21,11 +21,13 @@
 
 input[type="text"],
 input[type="password"] {
-  width: 70%;
+  width: 90%;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   align-items: center;
+  position: relative;
+  text-align: center;
 }
 
 input[type="submit"] {
@@ -61,7 +63,7 @@ input[type="submit"]:hover {
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
-  width: 30%;
+  width: 40%;
   height: 50%;
   align-items: center;
 }

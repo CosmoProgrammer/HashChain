@@ -57,10 +57,6 @@ function Login(){
 
 
 
-    const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
 
 //JSX-need someone else to work on this
 
@@ -70,12 +66,10 @@ function Login(){
         <div className="input-container">
           <label>Username </label>
           <input type="text" name="uname" required />
-          {renderErrorMessage("entered_username")}
         </div>
         <div className="input-container">
           <label>Password </label>
           <input type="password" name="password" required />
-          {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
           <input type="submit" />

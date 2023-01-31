@@ -14,13 +14,10 @@ function Login(){
       if(request.readyState===4 && request.status ===200){
         if(this.responseText==='false' || this.responseText === false){
           localStorage.setItem('authenticated',this.responseText)
-          return false;
         }
         else{
           localStorage.setItem("authenticated",true);
-          return true;
         }
-
         request.open('GET','http://localhost:7863',true);
         request.send();
 

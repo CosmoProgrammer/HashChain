@@ -28,7 +28,6 @@ input[type="password"] {
   align-items: center;
   position: relative;
   text-align: center;
-  color: rgb(255, 255, 255);
 }
 
 input[type="submit"] {
@@ -97,7 +96,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

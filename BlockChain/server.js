@@ -17,18 +17,14 @@ var UserChainInstance = new UserChain
 let id1 = UserChainInstance.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
 let id2 = UserChainInstance.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
 
-app.get('/login/:cred', (req, res) => {
-    var creds = JSON.parse(res.params.cred)
-    var username = creds.username
-    if (UserChainInstance.findUser(username) == false){
-        UserChainInstance.addUser(creds)
-    }
-    let id = UserChainInstance.addUser(cred)
-    res.send('The Blockchain serverside is working')
+app.get('/login/:cred', (req, res) => {   
+    var tcreds = req.params.cred
+    var creds = JSON.parse(tcreds)
+    //res.send('The Blockchain serverside is working')
     if (true){
         console.log('test')
     }
-    UserChainInstance.verifyUser(username,password)
+    UserChainInstance.verifyUser(creds)
 })
 
 app.get('/getItem', (req, res) => {

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 
-import "./style.css"; 
+import "../../styles/style.css"; 
 
 
 function Login(){

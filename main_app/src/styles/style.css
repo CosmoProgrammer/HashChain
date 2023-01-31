@@ -30,16 +30,16 @@ input[type="password"] {
   width: 70%;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  position: relative;
+  border-radius: 8px;
+  align-items: center;
 }
 
 input[type="submit"] {
   margin-top: 10px;
   cursor: pointer;
   font-size: 20px;
-  background: #5900ff;
   border: 1px solid #0127d2;
-  color: #fff;
+  color: rgb(4, 0, 255);
   padding: 10px 20px;
   border-radius: 8px;
   font-family: newfont1;
@@ -48,6 +48,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: rgb(25, 25, 170);
+  color: azure;
+  border: rgb(25,25,170);
   font-family: newfont1;
   position: relative;
 }
@@ -61,12 +63,13 @@ input[type="submit"]:hover {
 }
 
 .login-form {
-  background-color: rgb(255, 255, 255);
+  background-color: azure;
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
   width: 50%;
   height: 50%;
+  align-items: center;
 }
 
 .list-container {

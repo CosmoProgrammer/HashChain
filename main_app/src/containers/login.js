@@ -1,11 +1,5 @@
 import React,{useState} from "react";
-<<<<<<< HEAD
-import { json } from "react-router-dom";
-import "./style.css"; 
-=======
-
-import "../styles/style.css"; 
->>>>>>> 7778ce8a10f05b01c40cb5d98fc0698b7041837b
+import "../styles/style.css";
 
 function Login(){
     const[errorMessages,setErrorMessages] = useState({});
@@ -18,16 +12,16 @@ function Login(){
     request.onreadystatechange = function(){
       if(request.readyState===4 && request.status ===200){
         if(this.responseText==='false' || this.responseText === false){
-          localStorage.setItem('authenticated',this.responseText)
+          localStorage.setItem('authenticated',this.responseText);
+          return false;
         }
         else{
           localStorage.setItem("authenticated",true);
+          return true;
         }
-        request.open('GET','http://localhost:7863',true);
-        request.send();
-
-          
       }
+        request.open('GET','http://localhost:7863'+JSON.stringify(credentials),true);
+        request.send();
     }
 
   }

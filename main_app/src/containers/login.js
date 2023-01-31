@@ -14,14 +14,12 @@ function Login(){
         console.log("In the recieving function")
         if(this.responseText==='false' || this.responseText === false){
           localStorage.setItem('authenticated',this.responseText);
-          return false;
         }
         else{
           localStorage.setItem("authenticated",true);
           let Var = JSON.parse(this.responseText);
           localStorage.setItem('username', Var['entered_username']);
           localStorage.setItem('password', Var['entered_password']);
-          return true;
         }
       }
         request.open('GET','http://localhost:7863/login/'+JSON.stringify(credentials),true);

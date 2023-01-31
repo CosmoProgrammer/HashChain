@@ -28,7 +28,7 @@ input[type="password"] {
   align-items: center;
   position: relative;
   text-align: center;
-  color: rgb(255, 255, 255);
+  text-decoration-color: rgb(255, 255, 255);
 }
 
 input[type="submit"] {

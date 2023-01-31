@@ -1,6 +1,6 @@
 const express = require('express'); 
 const app = express(); 
-const port = 7863
+const port = 7793
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
@@ -21,10 +21,12 @@ app.get('/login/:cred', (req, res) => {
     var tcreds = req.params.cred
     var creds = JSON.parse(tcreds)
     //res.send('The Blockchain serverside is working')
-    if (true){
-        console.log('test')
+    if (UserChainInstance.verifyUser(creds)) {
+        console.log('Login successful')
     }
-    UserChainInstance.verifyUser(creds)
+    else{
+        console.log(creds)
+    }
 })
 
 app.get('/getItem', (req, res) => {

@@ -1,10 +1,11 @@
 import './App.css';
 import "react-toastify/dist/ReactToastify.css";
 import { Routes as Switch, Route } from 'react-router-dom';
+import PrivateRoute from './containers/PrivateRoute';
 import Login from './containers/login';
 import Tree from './containers/Tree';
 
-function App() {
+function App() { 
     const item = {
         location: "Peril Farm",
         name: "Rice grains",
@@ -41,6 +42,7 @@ function App() {
       <Switch>
         <Route path="/" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />
+        <Route exact path="/supplynode" element={<PrivateRoute>Hi</PrivateRoute>} />
       </Switch>
       </>
     );

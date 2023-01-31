@@ -23,7 +23,7 @@
   .item-header:hover{
     background-image: linear-gradient(to left, rgb(255,255,255),rgb(0,0,0));
     font: bolder;
-    font: rgb(255,255,255);
+    color: rgb(255,255,255);
   }
 
   .item-header-text {

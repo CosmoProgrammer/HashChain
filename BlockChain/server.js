@@ -14,14 +14,15 @@ const { UserChain } = require('./UserChain')
 var SupplyChainInstance = new SupplyChain
 var UserChainInstance = new UserChain
 
-let id1 = UserChainInstance.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
-let id2 = UserChainInstance.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
+let id1 = UserChainInstance.addUser({username:'Anirudh', password:'qwerty', 'deposit':20})
+let id2 = UserChainInstance.addUser({username:"Laaksh", password: '123456','deposit':10})
 
 app.get('/login/:cred', (req, res) => {   
     var tcreds = req.params.cred
     var creds = JSON.parse(tcreds)
+    console.log(creds.password)
     //res.send('The Blockchain serverside is working')
-    if (UserChainInstance.verifyUser(creds)) {
+    if (UserChainInstance.verifyUser(creds.username, creds.password)) {
         console.log('Login successful')
     }
     else{

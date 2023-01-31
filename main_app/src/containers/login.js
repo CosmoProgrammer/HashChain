@@ -17,6 +17,9 @@ function Login(){
         }
         else{
           localStorage.setItem("authenticated",true);
+          let Var = JSON.parse(this.responseText);
+          localStorage.setItem('username', Var['entered_username']);
+          localStorage.setItem('password', Var['entered_password']);
           return true;
         }
       }

@@ -19,7 +19,13 @@
     color: black;
   }
   
+  .item-header:hover{
+    background-color: rgb(63, 63, 63);
+    font: bolder;
+  }
+
   .item-header-text {
+    font-size: large;
     font-weight: bold;
   }
   
@@ -37,6 +43,7 @@
   }
   
   .item-detail-label {
+    
     font-weight: bold;
     width: 150px;
     margin-right: 10px;

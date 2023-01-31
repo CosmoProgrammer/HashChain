@@ -1,6 +1,11 @@
 import React,{useState} from "react";
+<<<<<<< HEAD
 import { json } from "react-router-dom";
 import "./style.css"; 
+=======
+
+import "../styles/style.css"; 
+>>>>>>> 7778ce8a10f05b01c40cb5d98fc0698b7041837b
 
 function Login(){
     const[errorMessages,setErrorMessages] = useState({});

@@ -1,66 +1,75 @@
-import React from "react";
-import { TreeMap } from "react-google-charts";
+import React, { useState } from 'react';
+import '../styles/item.css';
 
-const Tree = ({ item }) => {
-  const treeData = [
-    {
-      id: item.name,
-      parent: null,
-      value: item.cost,
-      title: item.name,
-    },
-  ];
+const Item = ({ item }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const createTreeData = (item, parent) => {
-    if (item.componentItems) {
-      item.componentItems.forEach((child) => {
-        treeData.push({
-          id: child.name,
-          parent: parent,
-          value: child.cost,
-          title: child.name,
-        });
-        createTreeData(child, child.name);
-      });
-    }
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
   };
 
-  createTreeData(item, item.name);
-
   return (
-    <TreeMap
-      data={treeData}
-      columns={[
-        {
-          type: "string",
-          id: "id",
-        },
-        {
-          type: "string",
-          id: "parent",
-        },
-        {
-          type: "number",
-          id: "value",
-        },
-        {
-          type: "string",
-          role: "tooltip",
-          id: "title",
-        },
-      ]}
-      options={{
-        minColor: "#ffffff",
-        midColor: "#7f7f7f",
-        maxColor: "#000000",
-        headerHeight: 15,
-        fontColor: "black",
-        showScale: true,
-      }}
-      height="300px"
-      width="100%"
-    />
+    <div className="item-container">
+      <div className="item-header" onClick={toggleExpand}>
+        <div className="item-header-text">{item.name}</div>
+        <div className="item-header-toggle">
+          {isExpanded ? '-' : '+'}
+        </div>
+      </div>
+      {isExpanded && (
+        <div className="item-details">
+          <div className="item-detail">
+            <div className="item-detail-label">Location:</div>
+            <div className="item-detail-value">{item.location}</div>
+          </div>
+          <div className="item-detail">
+            <div className="item-detail-label">Description:</div>
+            <div className="item-detail-value">{item.description}</div>
+          </div>
+          <div className="item-detail">
+            <div className="item-detail-label">Quantity:</div>
+            <div className="item-detail-value">{item.quantity}</div>
+          </div>
+          <div className="item-detail">
+            <div className="item-detail-label">Expiration Date:</div>
+            <div className="item-detail-value">{item.expirationDate}</div>
+          </div>
+          <div className="item-detail">
+            <div className="item-detail-label">Source Info:</div>
+            <div className="item-detail-value">{item.sourceInfo}</div>
+          </div>
+          <div className="item-detail">
+            <div className="item-detail-label">Cost:</div>
+            <div className="item-detail-value">{item.cost}</div>
+          </div>
+          <div className="item-detail">
+            <div className="item-detail-label">Compliance:</div>
+            <div className="item-compliance">
+              <div className="item-compliance-detail">
+                <div className="item-compliance-label">Temperature:</div>
+                <div className="item-compliance-value">
+                  {item.compliance.temperature.toString()}
+                </div>
+              </div>
+              <div className="item-compliance-detail">
+                <div className="item-compliance-label">Moisture:</div>
+                <div className="item-compliance-value">
+                  {item.compliance.moisture.toString()}
+                </div>
+              </div>
+            </div>
+          </div>
+          {item.componentItems.length > 0 && (
+            <div className="item-children">
+              {item.componentItems.map((childItem, index) => (
+                <Item key={index} item={childItem} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 };
 
-export default Tree;
+export default Item;

@@ -1,23 +1,30 @@
 import React,{useState} from "react";
-
-import "../styles/style.css"; 
-
+import "../styles/style.css";
 
 function Login(){
     const[errorMessages,setErrorMessages] = useState({});
     const[submitted,setsubmitted] = useState(false);
     
 
-    const test_database = [
-        {
-            username : "EMPLOYEE1",
-            password : "PASSWORD1"
-        },
-        {
-            username: "EMPLOYEE2",
-            password: "PASSWORD2"
+  function validateForm(entered_username,entered_password){
+    var request = new XMLHttpRequest();
+    var credentials = {'username':entered_username,'password':entered_password};
+    request.onreadystatechange = function(){
+      if(request.readyState===4 && request.status ===200){
+        if(this.responseText==='false' || this.responseText === false){
+          localStorage.setItem('authenticated',this.responseText);
+          return false;
         }
-    ]; //TO:DO link with proper database
+        else{
+          localStorage.setItem("authenticated",true);
+          return true;
+        }
+      }
+        request.open('GET','http://localhost:7863'+JSON.stringify(credentials),true);
+        request.send();
+    }
+
+  }
 
     const errors = {
         entered_username:"invalid username",
@@ -27,10 +34,10 @@ function Login(){
 
     const handleonSumbit = (event) => {
         event.preventDefault();
+
         var{entered_username,entered_password} = document.forms[0];
 
-    
-    const ENTERED_DATA = test_database.find((user) => user.username === entered_username);
+        const ENTERED_DATA = validateForm(entered_username,entered_password);
 
     if(ENTERED_DATA){
         if(ENTERED_DATA.password !== entered_password.value){
@@ -46,11 +53,14 @@ function Login(){
     }
     };
 
-//JSX-need someone else to work on this
-  const renderErrorMessage = (name) =>
+
+
+    const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
+
+//JSX-need someone else to work on this
 
   const renderForm = (
     <div className="Form">
@@ -83,4 +93,4 @@ function Login(){
 }
 
 export default Login;
-    
+

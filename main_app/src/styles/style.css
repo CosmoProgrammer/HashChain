@@ -1,7 +1,13 @@
-@font-face {
+/*@font-face {
   font-family: newfont1;
+<<<<<<< HEAD:main_app/src/containers/style.css
+
+  src: url(C:\Users\pkd56\Downloads\Noto_Sans\NotoSans-Black.ttf);
+}*/
+=======
   src: url(./Helvetica.ttf);
 }
+>>>>>>> 7778ce8a10f05b01c40cb5d98fc0698b7041837b:main_app/src/styles/style.css
 
 .app {
   font-family: newfont1;

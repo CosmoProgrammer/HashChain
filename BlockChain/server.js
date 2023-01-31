@@ -30,7 +30,7 @@ app.get('/login/:cred', (req, res) => {
     }
 })
 
-app.get('/getItem', (req, res) => {
+/*app.get('/getItem', (req, res) => {
     var item = JSON.parse(req.body.item)
 })
 
@@ -42,6 +42,15 @@ app.get('/sendItem/:item/:func', (req, res) =>{
     console.log(funcToBeSent)
     res.send(funcToBeSent)
     console.log(item)
-})
+})*/
 
-app.listen(port)
+app.get("/getitem/:id", (req, res) => {
+    const id = req.params.id;
+    const item = SupplyChainInstance.findItem(id);
+    if (!item) {
+      return res.status(404).send("Item not found");
+    }
+    res.send(item);
+  });  
+
+app.listen(port, () => { console.log(`Listening at http://localhost:${port}`) });

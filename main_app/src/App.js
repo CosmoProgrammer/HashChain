@@ -4,6 +4,7 @@ import { Routes as Switch, Route } from 'react-router-dom';
 import PrivateRoute from './containers/PrivateRoute';
 import Login from './containers/login';
 import Tree from './containers/Tree';
+import NoPageFound from './containers/NoPageFound';
 
 function App() { 
     const item = {
@@ -42,7 +43,8 @@ function App() {
       <Switch>
         <Route path="/" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />
-        <Route exact path="/supplynode" element={<PrivateRoute>Hi</PrivateRoute>} />
+        <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
+        <Route element={< NoPageFound/>} />
       </Switch>
       </>
     );

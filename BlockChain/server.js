@@ -8,15 +8,26 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
-app.get('/', (req, res) => {
+const { SupplyChain } = require('./SupplyChain')
+const { UserChain } = require('./UserChain')
+
+var SupplyChainInstance = new SupplyChain
+var UserChainInstance = new UserChain
+
+let id1 = UserChainInstance.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
+let id2 = UserChainInstance.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
+
+app.get('/login', (req, res) => {
     var username = JSON.parse(req.body.username)
     var pswd = JSON.parse(req.body.password)
-    var item = JSON.parse(req.body.item)
-    var func = JSON.parse(req.body.func)
     res.send('The Blockchain serverside is working')
     if (true){
         console.log('test')
     }
+})
+
+app.get('/getItem', (req, res) => {
+    var item = JSOn.parse(req.body.item)
 })
 
 app.get('/sendItem/:item', (req, res) =>{
@@ -25,5 +36,3 @@ app.get('/sendItem/:item', (req, res) =>{
     res.send(item)
     console.log(item)
 })
-
-app.listen(port, () => console.log(`Listening on port ${port}`)); 

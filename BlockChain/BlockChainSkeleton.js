@@ -35,10 +35,9 @@ class BlockChain {
     }
 
     isChainTampered(){
-        for(let i=0; i<this.chain.length; i++){
+        for(let i=1; i<this.chain.length; i++){
             const block = this.chain[i]
             const prevBlock = this.chain[i-1]
-            if(block.hash !== block.getHash()){ return true }
             if(block.prevHash !== prevBlock.hash){ return true }
         }
         return false
@@ -57,7 +56,7 @@ class BlockChain {
         fs.writeFileSync(filepath, data)
     }
 
-    retrieveBlockChainFromFile(){
+    retrieveBlockChainFromFile(filepath){
         let data = fs.readFileSync(filepath)
         this.chain = JSON.parse(data)
     }

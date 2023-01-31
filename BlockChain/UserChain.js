@@ -66,11 +66,13 @@ class UserChain extends BlockChain {
 
 }
 
-let myBlockChain = new UserChain
-let id1 = myBlockChain.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
-let id2 = myBlockChain.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
-myBlockChain.transaction(id1,id2,10)
-console.log(myBlockChain.chain)
-console.log(myBlockChain.verifyUser('Laaksh','1234356'))
+if (require.main === module) {
+    let myBlockChain = new UserChain
+    let id1 = myBlockChain.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
+    let id2 = myBlockChain.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
+    myBlockChain.transaction(id1,id2,10)
+    console.log(myBlockChain.chain)
+    console.log(myBlockChain.verifyUser('Laaksh','1234356'))
+}
 
 module.exports = { UserChain }

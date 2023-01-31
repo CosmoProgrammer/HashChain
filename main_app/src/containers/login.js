@@ -1,43 +1,70 @@
 import React,{useState} from "react";
-
+import { json } from "react-router-dom";
 import "./style.css"; 
-//port 7863/Login/
 
 function Login(){
     const[errorMessages,setErrorMessages] = useState({});
     const[submitted,setsubmitted] = useState(false);
+    
+
+  function validateForm(entered_username,entered_password){
+    var request = new XMLHttpRequest();
+    var credentials = {'username':entered_username,'password':entered_password};
+    request.onreadystatechange = function(){
+      if(request.readyState===4 && request.status ===200){
+        if(this.responseText==='false' || this.responseText === false){
+          localStorage.setItem('authenticated',this.responseText)
+          return false;
+        }
+        else{
+          localStorage.setItem("authenticated",true);
+          return true;
+        }
+
+        request.open('GET','http://localhost:7863',true);
+        request.send();
+
+          
+      }
+    }
+
+  }
+
     const errors = {
         entered_username:"invalid username",
         entered_password:"invalid password"
 
     };
+
     const handleonSumbit = (event) => {
         event.preventDefault();
-        let credentials = {'username':entered_username,'password':entered_username};
-        new_request = new XMLHttpRequest(); 
-        new_request.onreadystatechange = function(){
-          if(new_request.readyState===4 && new_request.status===200){
-              if(this.responseText==='false' || this.responseText===false){
-                  localStorage.setItem('authenticated', this.responseText)
-              } else{
-                  localStorage.setItem('authenticated', true);
-                  let tempVar = JSON.parse(this.responseText);
-                  localStorage.setItem('username', tempVar['username']);
-                  localStorage.setItem('userID', tempVar['userID']);
-                  props.history.push("/onlyAuthorizedAllowedHere/home")
-              }
-          }   
-      }
-      request.open('GET', 'http://localhost:7863/login/'+JSON.stringify(credentials), true);
-      request.send();
-    };
-    
 
-//JSX-need someone else to work on this
-  const renderErrorMessage = (name) =>
+        var{entered_username,entered_password} = document.forms[0];
+
+        const ENTERED_DATA = validateForm(entered_username,entered_password);
+
+    if(ENTERED_DATA){
+        if(ENTERED_DATA.password !== entered_password.value){
+            setErrorMessages({name:"entered_password",message:errors.entered_password})
+        }
+        else{
+            setsubmitted(true);
+        }
+
+    }
+    else{ 
+        setErrorMessages({name:"entered_username", message:errors.entered_username})
+    }
+    };
+
+
+
+    const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
+
+//JSX-need someone else to work on this
 
   const renderForm = (
     <div className="Form">
@@ -70,4 +97,4 @@ function Login(){
 }
 
 export default Login;
-    
+

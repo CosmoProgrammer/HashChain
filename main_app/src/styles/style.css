@@ -28,6 +28,7 @@ input[type="password"] {
   align-items: center;
   position: relative;
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 input[type="submit"] {
@@ -59,7 +60,7 @@ input[type="submit"]:hover {
 }
 
 .login-form {
-  background-color: rgb(105, 105, 105);
+  background-color: rgb(119, 119, 119);
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;

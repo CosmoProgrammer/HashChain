@@ -4,6 +4,8 @@ import { Routes as Switch, Route } from 'react-router-dom';
 import PrivateRoute from './containers/PrivateRoute';
 import Login from './containers/login';
 import Tree from './containers/Tree';
+import TreeRendererRenderer from './containers/TreeRendererRenderer'
+import QrScanner from './containers/QRScanner';
 import NoPageFound from './containers/NoPageFound';
 
 function App() { 
@@ -43,6 +45,8 @@ function App() {
       <Switch>
         <Route path="/" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />
+        <Route path="/item/:id" element={ <TreeRendererRenderer /> } />
+        <Route path="/qr" exact element={ <QrScanner /> } />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />
       </Switch>

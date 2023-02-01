@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/item.css';
+import loc from '../styles/location icon.png';
+import quantity from '../styles/quantity icon.png';
+import cost from '../styles/cost icon.png';
+import temp from '../styles/temperature-icon-png-1.png';
+import moisture from '../styles/moisture-icon-26.jpg';
 
 const Item = ({ item }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -19,7 +24,7 @@ const Item = ({ item }) => {
       {isExpanded && (
         <div className="item-details">
           <div className="item-detail">
-            <div className="item-detail-label">Location<img src='../styles/location icon.png' style={{height:'20px',width:"20px"}}/>:</div>
+            <div className="item-detail-label">Location<img src={loc} style={{height:'20px',width:"20px"}}/>:</div>
            <div className="item-detail-value">{item.location}</div>
           </div>
           <div className="item-detail">
@@ -27,7 +32,7 @@ const Item = ({ item }) => {
             <div className="item-detail-value">{item.description}</div>
           </div>
           <div className="item-detail">
-            <div className="item-detail-label">Quantity<img src='../styles/quantity icon.png' style={{height:'20px',width:"20px"}}/>:</div>
+            <div className="item-detail-label">Quantity<img src={quantity} style={{height:'20px',width:"20px"}}/>:</div>
             <div className="item-detail-value">{item.quantity}</div>
           </div>
           <div className="item-detail">
@@ -39,20 +44,20 @@ const Item = ({ item }) => {
             <div className="item-detail-value">{item.sourceInfo}</div>
           </div>
           <div className="item-detail">
-            <div className="item-detail-label">Cost<img src='../styles/cost icon.png' style={{height:'20px',width:"20px"}}/>:</div>
+            <div className="item-detail-label">Cost<img src={cost} style={{height:'20px',width:"20px"}}/>:</div>
             <div className="item-detail-value">{item.cost}</div>
           </div>
           <div className="item-detail">
             <div className="item-detail-label">Compliance:</div>
             <div className="item-compliance">
               <div className="item-compliance-detail">
-                <div className="item-compliance-label">Temperature<img src='../styles/temperature-icon-png-1.png' style={{height:'20px',width:"20px"}}/>:</div>
+                <div className="item-compliance-label">Temperature<img src={temp} style={{height:'20px',width:"20px"}}/>:</div>
                 <div className="item-compliance-value">
                   {item.compliance.temperature.toString()}
                 </div>
               </div>
               <div className="item-compliance-detail">
-                <div className="item-compliance-label">Moisture<img src='../styles/moisture-icon-26.jpg' style={{height:'20px',width:"20px"}}/>:</div>
+                <div className="item-compliance-label">Moisture<img src={moisture} style={{height:'20px',width:"20px"}}/>:</div>
                 <div className="item-compliance-value">
                   {item.compliance.moisture.toString()}
                 </div>

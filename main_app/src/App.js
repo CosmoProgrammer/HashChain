@@ -44,7 +44,7 @@ function App() {
         <Route path="/" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
-        <Route element={< NoPageFound/>} />
+        <Route path='*' element={< NoPageFound/>} />
       </Switch>
       </>
     );

@@ -1,6 +1,6 @@
 const express = require('express'); 
 const app = express(); 
-const port = 7863
+const port = 7793
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
@@ -14,24 +14,23 @@ const { UserChain } = require('./UserChain')
 var SupplyChainInstance = new SupplyChain
 var UserChainInstance = new UserChain
 
-let id1 = UserChainInstance.addUser({'username':'Anirudh', 'password':'qwerty', 'deposit':20})
-let id2 = UserChainInstance.addUser({'username':"Laaksh", 'password': '123456','deposit':10})
+let id1 = UserChainInstance.addUser({username:'Anirudh', password:'qwerty', 'deposit':20})
+let id2 = UserChainInstance.addUser({username:"Laaksh", password: '123456','deposit':10})
 
-app.get('/login/:cred', (req, res) => {
-    var creds = JSON.parse(res.params.cred)
-    var username = creds.username
-    if (UserChainInstance.findUser(username) == false){
-        UserChainInstance.addUser(creds)
+app.get('/login/:cred', (req, res) => {   
+    var tcreds = req.params.cred
+    var creds = JSON.parse(tcreds)
+    console.log(creds.password)
+    //res.send('The Blockchain serverside is working')
+    if (UserChainInstance.verifyUser(creds.username, creds.password)) {
+        console.log('Login successful')
     }
-    let id = UserChainInstance.addUser(cred)
-    res.send('The Blockchain serverside is working')
-    if (true){
-        console.log('test')
+    else{
+        console.log(creds)
     }
-    UserChainInstance.verifyUser(username,password)
 })
 
-app.get('/getItem', (req, res) => {
+/*app.get('/getItem', (req, res) => {
     var item = JSON.parse(req.body.item)
 })
 
@@ -43,6 +42,15 @@ app.get('/sendItem/:item/:func', (req, res) =>{
     console.log(funcToBeSent)
     res.send(funcToBeSent)
     console.log(item)
-})
+})*/
 
-app.listen(port)
+app.get("/getitem/:id", (req, res) => {
+    const id = req.params.id;
+    const item = SupplyChainInstance.findItem(id);
+    if (!item) {
+      return res.status(404).send("Item not found");
+    }
+    res.send(item);
+  });  
+
+app.listen(port, () => { console.log(`Listening at http://localhost:${port}`) });

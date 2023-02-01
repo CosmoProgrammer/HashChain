@@ -6,6 +6,7 @@ import Login from './containers/login';
 import Tree from './containers/Tree';
 import TreeRendererRenderer from './containers/TreeRendererRenderer'
 import QrScanner from './containers/QRScanner';
+import HomePage from './containers/Home';
 import NoPageFound from './containers/NoPageFound';
 
 function App() { 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />
         <Route path="/item/:id" element={ <TreeRendererRenderer /> } />
+        <Route path="/home" exact element={ <HomePage /> } />
         <Route path="/qr" exact element={ <QrScanner /> } />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />

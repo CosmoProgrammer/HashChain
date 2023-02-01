@@ -18,9 +18,20 @@ const QRScanner = () => {
   };
 
   return (
-    <div>
+    <div style={{verticalAlign: 'middle'}}>
+      <fieldset align="center" style={{
+        backgroundColor: '#eeeeee',
+        margin: 'auto',
+        verticalAlign: 'middle'
+    }}>
+      <legend style={{
+        backgroundColor: 'gray',
+        color: 'white',
+        padding: '5px 10px'
+      }}>Scan Code Here</legend>
       <QrScanner onScan={handleScan} />
       {result}
+      </fieldset>
     </div>
   );
 };

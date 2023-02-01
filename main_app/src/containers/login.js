@@ -1,58 +1,54 @@
 import React,{useState} from "react";
 import "../styles/style.css";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 function Login(props){
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    
-    function handleonSubmit(event){
-        event.preventDefault();
-        var request = new XMLHttpRequest();
-        var credentials = {'username': username, 'password': password};
-        request.onreadystatechange = function(){
-            if(request.readyState===4 && request.status===200){
-                if(this.responseText==='false' || this.responseText===false){
-                    localStorage.setItem('authenticated', this.responseText)
-                } else{
-                    localStorage.setItem('authenticated', true);
-                    let Var = JSON.parse(this.responseText);
-                    localStorage.setItem('username', Var['username']);
-                    localStorage.setItem('password', Var['password']);
-                    props.history.push("/someplace/");
-                }
-            }   
-        }
-        request.open('GET', 'http://localhost:7863/login/'+JSON.stringify(credentials), true);
-        request.send();
+    const navigate = useNavigate();
+    const [username,setUsername] = useState("");
+    const [password,setPassword] = useState("");
+    function validateForm(){
+      return username.length >0 && password.length > 0;
+    }
+    async function HandleOnSubmit(event){
+      event.preventDefault();
+      var credentials = {'username':username,'password':password};
+      const response = await fetch('http://localhost:7793/login/'+JSON.stringify(credentials));
+      console.log(response)
+      if(response){
+
+        localStorage.setItem('authenticated',true);
+        navigate('/home/')//not valid
+      }
+      else{ 
+        const notify = () => toast("Invalid username or password"); 
+        //porth put this notify in the tag for invalid
+
+
+      }
+      
     }
 
 //JSX-need someone else to work on this
 
-  const renderForm = (
-    <div className="Form">
-      <form onSubmit={handleonSubmit}>
-        <div className="input-container">
-          <label>Username </label>
-            
-          <input type="text" name="uname" required />
-        </div>
-        <div className="input-container">
-          <label>Password </label>
-          <input type="password" name="password" required />
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
+  return (<>
+    <Form onSubmit={HandleOnSubmit}>
+                <Form.Group size="lg" controlId="username" className="mb-3">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control autofocus type="text" value={username} onChange={(u)=>setUsername(u.target.value)}/>
+                </Form.Group>
+                <Form.Group size="lg" controlId="password" className="mb-3">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control autofocus type="password" value={password} onChange={(p)=>setPassword(p.target.value)}/>
+                </Form.Group>
+                <Button block size='lg' type='submit' disabled={!validateForm}>Login</Button>
 
-  return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-      </div>
-    </div>
+            </Form>
+
+    </>
+    
   );
 }
 

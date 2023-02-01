@@ -9,7 +9,7 @@ import exp from '../styles/exp icon.png';
 import info from '../styles/info icon.jpeg';
 import desc from '../styles/desc icon.png'
 
-const Item = ({ item }) => {
+const Tree = ({ item }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -56,13 +56,13 @@ const Item = ({ item }) => {
               <div className="item-compliance-detail">
                 <div className="item-compliance-label">Temperature   <img src={temp} style={{height:'25px',width:"25px"}}/>:</div>
                 <div className="item-compliance-value">
-                  {item.compliance.temperature.toString()}
+                  {item.compliance.temperature}
                 </div>
               </div>
               <div className="item-compliance-detail">
                 <div className="item-compliance-label">Moisture   <img src={moisture} style={{height:'25px',width:"25px"}}/>:</div>
                 <div className="item-compliance-value">
-                  {item.compliance.moisture.toString()}
+                  {item.compliance.moisture}
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@ const Item = ({ item }) => {
           {item.componentItems.length > 0 && (
             <div className="item-children">
               {item.componentItems.map((childItem, index) => (
-                <Item key={index} item={childItem} />
+                <Tree key={index} item={childItem} />
               ))}
             </div>
           )}
@@ -80,4 +80,4 @@ const Item = ({ item }) => {
   );
 };
 
-export default Item;
+export default Tree;

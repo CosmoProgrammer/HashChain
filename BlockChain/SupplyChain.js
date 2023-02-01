@@ -90,6 +90,7 @@ if (require.main === module) {
         expirationDate: "12/3/23",
         sourceInfo: "Farm",
         cost: 1000,
+        componentItems: [],
         compliance: {
             temperature: (temp) => temp<=20,
             moisture: (moisture) => moisture<=60
@@ -103,6 +104,7 @@ if (require.main === module) {
         expirationDate: "12/4/23",
         sourceInfo: "Refinary",
         cost: 1500,
+        componentItems: [],
         compliance: {
             temperature: (temp) => temp<=30,
             moisture: (moisture) => moisture<=30
@@ -116,6 +118,7 @@ if (require.main === module) {
         expirationDate: "12/12/23",
         sourceInfo: "Factory",
         cost: 500,
+        componentItems: [],
         compliance: {
             temperature: (temp) => temp<=80,
             moisture: (moisture) => moisture<=10
@@ -129,6 +132,7 @@ if (require.main === module) {
         expirationDate: "1/2/23",
         sourceInfo: "Farm",
         cost: 100,
+        componentItems: [],
         compliance: {
             temperature: (temp) => temp<=30,
             moisture: (moisture) => moisture<=100

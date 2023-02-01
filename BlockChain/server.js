@@ -54,7 +54,6 @@ app.get("/getitem/:id", (req, res) => {
     console.log(req.params.id)
     const id = req.params.id;
     const item = SupplyChainInstance.findItem(id);
-    console.log(SupplyChainInstance)
     if (!item) {
       return res.status(404).send("Item not found");
     }

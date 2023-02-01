@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Tree from "./Tree";
 
-const ItemFetcher = (props) => {
+const TreeRenderer = (props) => {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,4 +32,4 @@ const ItemFetcher = (props) => {
   );
 };
 
-export default ItemFetcher;
+export default TreeRenderer;

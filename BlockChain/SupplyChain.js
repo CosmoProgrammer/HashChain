@@ -159,7 +159,8 @@ if (require.main === module) {
             console.log(myBlockChain.chain[i]['content']['componentItems'])
         }
         console.log("******************************************************************")
-}
+    }
+    myBlockChain.saveBlockChainToFile('SupplyChain.json')
 }
 module.exports = { SupplyChain }
 

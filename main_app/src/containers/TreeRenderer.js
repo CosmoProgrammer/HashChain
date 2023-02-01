@@ -9,6 +9,7 @@ const ItemFetcher = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(props)
         const response = await fetch(`http://localhost:7793/getitem/${props.id}`);
         const data = await response.json();
         setItem(data);

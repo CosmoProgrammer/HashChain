@@ -14,6 +14,8 @@ const { UserChain } = require('./UserChain')
 var SupplyChainInstance = new SupplyChain
 var UserChainInstance = new UserChain
 
+SupplyChainInstance.retrieveBlockChainFromFile('SupplyChain.json')
+
 let id1 = UserChainInstance.addUser({username:'Anirudh', password:'qwerty', 'deposit':20})
 let id2 = UserChainInstance.addUser({username:"Laaksh", password: '123456','deposit':10})
 
@@ -48,8 +50,11 @@ app.get('/sendItem/:item/:func', (req, res) =>{
 })*/
 
 app.get("/getitem/:id", (req, res) => {
+    console.log("HERE")
+    console.log(req.params.id)
     const id = req.params.id;
     const item = SupplyChainInstance.findItem(id);
+    console.log(SupplyChainInstance)
     if (!item) {
       return res.status(404).send("Item not found");
     }

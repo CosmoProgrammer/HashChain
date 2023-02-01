@@ -9,10 +9,10 @@
     "crypto-js": "^4.1.1",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
+    "react-supervisor": "^4.0.1",
     "supervisor": "^0.12.0",
     "uuid": "^9.0.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

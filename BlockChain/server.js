@@ -20,13 +20,16 @@ let id2 = UserChainInstance.addUser({username:"Laaksh", password: '123456','depo
 app.get('/login/:cred', (req, res) => {   
     var tcreds = req.params.cred
     var creds = JSON.parse(tcreds)
+    console.log(creds)
     console.log(creds.password)
     //res.send('The Blockchain serverside is working')
     if (UserChainInstance.verifyUser(creds.username, creds.password)) {
         console.log('Login successful')
+        res.send('true')
     }
     else{
         console.log(creds)
+        res.send('false')
     }
 })
 

@@ -1,0 +1,29 @@
+.enter-id-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .enter-id-input {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+  }
+  
+  .enter-id-button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .enter-id-button:hover {
+    background-color: lightblue;
+  }
+  

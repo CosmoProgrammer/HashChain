@@ -13,7 +13,7 @@ const HomePage = () => {
         </p>
       </div>
       <div className="actions">
-        <Link to="/scan" className="scan-button">
+        <Link to="/qr" className="scan-button">
           Scan QR Code
         </Link>
         <Link to="/search" className="search-button">

@@ -19,15 +19,15 @@ const Item = ({ item }) => {
       {isExpanded && (
         <div className="item-details">
           <div className="item-detail">
-            <div className="item-detail-label">Location:</div>
-            <div className="item-detail-value">{item.location}</div>
+            <div className="item-detail-label">Location<img src='../styles/icons tisb/location icon.png' style={{height:'20px',width:"20px"}}/>:</div>
+           <div className="item-detail-value">{item.location}</div>
           </div>
           <div className="item-detail">
             <div className="item-detail-label">Description:</div>
             <div className="item-detail-value">{item.description}</div>
           </div>
           <div className="item-detail">
-            <div className="item-detail-label">Quantity:</div>
+            <div className="item-detail-label">Quantity<img src='../styles/icons tisb/quantity icon.png' style={{height:'20px',width:"20px"}}/>:</div>
             <div className="item-detail-value">{item.quantity}</div>
           </div>
           <div className="item-detail">
@@ -39,20 +39,20 @@ const Item = ({ item }) => {
             <div className="item-detail-value">{item.sourceInfo}</div>
           </div>
           <div className="item-detail">
-            <div className="item-detail-label">Cost:</div>
+            <div className="item-detail-label">Cost<img src='../styles/icons tisb/cost icon.png' style={{height:'20px',width:"20px"}}/>:</div>
             <div className="item-detail-value">{item.cost}</div>
           </div>
           <div className="item-detail">
             <div className="item-detail-label">Compliance:</div>
             <div className="item-compliance">
               <div className="item-compliance-detail">
-                <div className="item-compliance-label">Temperature:</div>
+                <div className="item-compliance-label">Temperature<img src='../styles/icons tisb/temperature-icon-png-1.png' style={{height:'20px',width:"20px"}}/>:</div>
                 <div className="item-compliance-value">
                   {item.compliance.temperature.toString()}
                 </div>
               </div>
               <div className="item-compliance-detail">
-                <div className="item-compliance-label">Moisture:</div>
+                <div className="item-compliance-label">Moisture<img src='../styles/icons tisb/moisture-icon-26.jpg' style={{height:'20px',width:"20px"}}/>:</div>
                 <div className="item-compliance-value">
                   {item.compliance.moisture.toString()}
                 </div>

@@ -1,70 +1,39 @@
 import React,{useState} from "react";
 import "../styles/style.css";
 
-function Login(){
-    const[errorMessages,setErrorMessages] = useState({});
-    const[submitted,setsubmitted] = useState(false);
+function Login(props){
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     
-
-  function validateForm(entered_username,entered_password){
-    var request = new XMLHttpRequest();
-    var credentials = {'username':entered_username,'password':entered_password};
-    request.onreadystatechange = function(){
-      if(request.readyState===4 && request.status ===200){
-        console.log("In the recieving function")
-        if(this.responseText==='false' || this.responseText === false){
-          localStorage.setItem('authenticated',this.responseText);
+    function handleonSubmit(event){
+        event.preventDefault();
+        var request = new XMLHttpRequest();
+        var credentials = {'username': username, 'password': password};
+        request.onreadystatechange = function(){
+            if(request.readyState===4 && request.status===200){
+                if(this.responseText==='false' || this.responseText===false){
+                    localStorage.setItem('authenticated', this.responseText)
+                } else{
+                    localStorage.setItem('authenticated', true);
+                    let Var = JSON.parse(this.responseText);
+                    localStorage.setItem('username', Var['username']);
+                    localStorage.setItem('password', Var['password']);
+                    props.history.push("/someplace/");
+                }
+            }   
         }
-        else{
-          localStorage.setItem("authenticated",true);
-          let Var = JSON.parse(this.responseText);
-          localStorage.setItem('username', Var['entered_username']);
-          localStorage.setItem('password', Var['entered_password']);
-        }
-      }
-        request.open('GET','http://localhost:7863/login/'+JSON.stringify(credentials),true);
+        request.open('GET', 'http://localhost:7863/login/'+JSON.stringify(credentials), true);
         request.send();
     }
-
-  }
-
-    const errors = {
-        entered_username:"invalid username",
-        entered_password:"invalid password"
-
-    };
-
-    const handleonSumbit = (event) => {
-        event.preventDefault();
-
-        var{entered_username,entered_password} = document.forms[0];
-
-        const ENTERED_DATA = validateForm(entered_username,entered_password);
-
-    if(ENTERED_DATA){
-        if(ENTERED_DATA.password !== entered_password.value){
-            setErrorMessages({name:"entered_password",message:errors.entered_password})
-        }
-        else{
-            setsubmitted(true);
-        }
-
-    }
-    else{ 
-        setErrorMessages({name:"entered_username", message:errors.entered_username})
-    }
-    };
-
-
-
 
 //JSX-need someone else to work on this
 
   const renderForm = (
     <div className="Form">
-      <form onSubmit={handleonSumbit}>
+      <form onSubmit={handleonSubmit}>
         <div className="input-container">
           <label>Username </label>
+            
           <input type="text" name="uname" required />
         </div>
         <div className="input-container">
@@ -82,7 +51,6 @@ function Login(){
     <div className="app">
       <div className="login-form">
         <div className="title">Sign In</div>
-        {submitted ? <div>Signed in</div> : renderForm}
       </div>
     </div>
   );

@@ -18,10 +18,11 @@
     border-radius: 8px;
     color: black;
     box-shadow: inset rgb(0, 0, 0);
+    text-size-adjust: initial;
   }
   
   .item-header:hover{
-    background-image: linear-gradient(to left, rgb(255,255,255),rgb(0,0,0));
+    background-image: linear-gradient(to right, rgb(0,0,0),rgb(119,119,119));
     font: bolder;
     color: rgb(255,255,255);
   }
@@ -45,7 +46,7 @@
   }
   
   .item-detail-label {
-
+    
     font-weight: bold;
     width: 150px;
     margin-right: 10px;

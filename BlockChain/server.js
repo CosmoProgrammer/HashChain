@@ -50,8 +50,8 @@ app.get('/sendItem/:item/:func', (req, res) =>{
 })*/
 
 app.get("/getitem/:id", (req, res) => {
-    console.log("HERE")
-    console.log(req.params.id)
+    //console.log("HERE")
+    //console.log(req.params.id)
     const id = req.params.id;
     const item = SupplyChainInstance.findItem(id);
     if (!item) {

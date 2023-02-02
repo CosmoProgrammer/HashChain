@@ -28,12 +28,12 @@ const History = () => {
         </thead>
         <tbody>
           {itemList.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
+            <tr key={item[0]}>
+              <td>{item[0]}</td>
+              <td>{item[1]}</td>
               <td>
                 <button
-                  onClick={() => navigate(`/item/${item.id}`)}
+                  onClick={() => navigate(`/item/${item[0]}`)}
                   className="item-list-view-btn"
                 >
                   View

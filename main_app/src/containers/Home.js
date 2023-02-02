@@ -27,13 +27,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="actions">
-          <Link to="/qr" className="scan-button">
+          <Link to="/qr" className="search-button">
             Scan QR Code
           </Link>
           <Link to="/search" className="search-button">
             Search by ID
           </Link>
       </div>
+      <History />
       <div>
         <p className="description">
           Powered by blockchain technology for end-to-end transparency and

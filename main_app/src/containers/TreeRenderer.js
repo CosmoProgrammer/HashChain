@@ -12,16 +12,17 @@ const TreeRenderer = (props) => {
         console.log(props)
         const response = await fetch(`http://localhost:7793/getitem/${props.id}`);
         const data = await response.json();
-        if(data!=="Item not found"){
-          console.log("hi")
-          let localStorageItems = []
-          console.log(localStorage['items'])
-          if(localStorage.getItem("items")){
-            localStorageItems = JSON.parse(localStorage.getItem("items")) ;
-          }
-          localStorageItems[data.id] =  data.name
-          localStorage.setItem("items", localStorageItems);
+        var pastSearches = [];
+        if(localStorage["items"]) {
+          pastSearches = JSON.parse(localStorage["items"]);
         }
+        if(pastSearches[0][0] !== data.id){
+          pastSearches.unshift([data.id,data.name]);
+        }
+        if(pastSearches.length > 10){
+          pastSearches.pop()
+        }
+        localStorage["items"] = JSON.stringify(pastSearches);
         setItem(data);
         setLoading(false);
       } catch (err) {

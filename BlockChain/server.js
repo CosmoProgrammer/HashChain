@@ -61,4 +61,26 @@ app.get("/getitem/:id", (req, res) => {
     res.send(item);
   });  
 
+app.post("/combine/:ids/:details", (req, res) => {
+    let ids =  req.params.ids.split(',');
+    let details = JSON.parse(req.params.details)
+    console.log(details)
+    let idtemp = SupplyChainInstance.combineItems(details, ...ids)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("Done")
+})
+
+app.get("/location/:user", (req, res) => {
+    let user = req.params.user
+    let items = SupplyChainInstance.getItemsAtLocation(user)
+    let itemids = []
+    for (let i = 0; i < items.length; i++){
+        itemids.push(items[i].id)
+    }
+    //let details = SupplyChainInstance.getItemsDetails(itemIds)
+    console.log(itemids)
+    res.send(itemids)
+})
+
+
 app.listen(port, () => { console.log(`Listening at http://localhost:${port}`) });

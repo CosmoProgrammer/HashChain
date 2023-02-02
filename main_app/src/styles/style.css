@@ -2,6 +2,31 @@
   font-family: newfont1;
   src: url(./Helvetica.ttf);
 }
+.header {
+  height: 170px;
+  margin-top: 10px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.header li ul a {
+  font-size: 80px;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.subhead {
+  font-size: 15px;
+  
+}
 
 .app {
   font-family: newfont1;
@@ -101,11 +126,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-.console.log{
-  font-family: newfont1;
-  font-size: 300px;
-  text-align: center;
-  color: #ffffff;
-  background-image: linear-gradient(to bottom, rgb(0,0,0),rgb(119,119,119));
 }

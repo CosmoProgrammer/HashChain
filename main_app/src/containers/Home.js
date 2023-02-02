@@ -23,6 +23,9 @@ const HomePage = () => {
             <li><a><Link to="/about_project">
               About Project
             </Link></a></li>
+            <li><a><Link to="/">
+              Login
+            </Link></a></li>
           </ul>
         </div>
       </div>

@@ -1,5 +1,5 @@
    .main{
-    height: 100vh;
+    height: auto;
     width: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
     background-size: cover;
@@ -94,8 +94,8 @@
   }
 
   .description{
-    position: absolute;
-    bottom: 10px;
+    position: relative;
+    bottom: 0px;
   }
 
   .Aboutinfo{

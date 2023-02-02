@@ -57,8 +57,8 @@ function App() {
         <Route path="/qr" exact element={ <QrScanner /> } />
         <Route path="/search" exact element={ <EnterID /> } />
         <Route path="/about_us" exact element={ <About/>} />        
-        <Route path="/contact_us" exact element={ <About/>} />
-        <Route path="/about_project" exact element={ <About/>} />
+        <Route path="/contact_us" exact element={ <Contact/>} />
+        <Route path="/about_project" exact element={ <AboutProj/>} />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />
       </Switch>

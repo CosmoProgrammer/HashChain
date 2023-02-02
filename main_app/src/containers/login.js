@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import webcon from "../styles/ICON.png";
+import { Link } from "react-router-dom";
 
 function Login(props){
     const navigate = useNavigate();
@@ -35,6 +37,11 @@ function Login(props){
 
 //JSX-need someone else to work on this
 return (<>
+<div>
+<li>
+        <ul className="title"><Link to='/Home'><a><img src={webcon} style={{height:'110px'}}/>HashChain</a></Link></ul>
+        <ul className="subhead">"A mathematical framework that is free of politics and human error"</ul></li>
+</div>
   <div className="form">
     <form onSubmit={HandleOnSubmit}>
       <div className="input-container">

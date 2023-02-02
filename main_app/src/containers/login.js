@@ -1,11 +1,12 @@
 import React,{useState} from "react";
 import "../styles/style.css";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import 'react-toastify/dist/ReactToastify.css';
 
-function Login(props){
+
+function Login(){
     const navigate = useNavigate();
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
@@ -16,49 +17,38 @@ function Login(props){
       event.preventDefault();
       var credentials = {'username':username,'password':password};
       const response = await fetch('http://localhost:7793/login/'+JSON.stringify(credentials));
-      console.log(response)
-      if(response){
 
+      if(response){
+        console.log(Response)
+        toast.success("Success Notification",{position:toast.POSITION.TOP_RIGHT});
         localStorage.setItem('authenticated',true);
-        navigate('/home/')//not valid
+        navigate('/home/')
       }
       else{ 
-        navigate('http://localhost:7793/')
-        const notify = () => toast("Invalid username or password"); 
-        alert(notify)
-        //porth put this notify in the tag for invalid
-
+         navigate('http://localhost:7793/')
 
       }
-      
     }
-
-//JSX-need someone else to work on this
 return (<>
   <div className="form">
     <form onSubmit={HandleOnSubmit}>
-      <div className="input-container">
+      <div className="login__input">
         <label>Username</label>
         <input type="text" name="username"
-          onChange={(u)=>setUsername(u.target.value)}
-         required/>
+          onChange={(u)=>setUsername(u.target.value)} required/>
         
       </div>
-      <div className="input-container">
+      <div className="login_password">
           <label>Password</label>
           <input type="password" name="password" 
-          onChange={(p)=>setPassword(p.target.value)}
-          required/>
-
+          onChange={(p)=>setPassword(p.target.value)} required/>
       </div>
-      <div className="button-container">
-          <input type="submit" />
-        </div>
       </form> 
+      //make button for submit
 </div>
 </>);
 
-}
+};
 
 export default Login;
 

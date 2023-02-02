@@ -1,5 +1,23 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: newfont1;
+  src: url(../src/styles/Helvetica.ttf);
+}
+
+
+.app {
+  font-family: newfont1;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-image: url(../src/styles/bgpic.webp);
+  background-position: center;
+  background-size: cover;
+  font-family: newfont1;
 }
 
 .App-logo {

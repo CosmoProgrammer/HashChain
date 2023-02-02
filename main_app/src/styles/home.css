@@ -20,8 +20,8 @@
   }
   
   .header li ul a {
-    font-size: 45px;
-    font-weight: bold;
+    font-size: 80px;
+    font-weight: bolder;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
     text-decoration: none;
@@ -95,5 +95,16 @@
   .description{
     position: absolute;
     bottom: 10px;
+  }
+
+  .Aboutinfo{
+    text-align: center;
+    position: relative;
+    font-size: 23px;
+  }
+  .Aboutinfo h1{
+    text-align: center;
+    position: relative;
+    font-size: 80px;
   }
   

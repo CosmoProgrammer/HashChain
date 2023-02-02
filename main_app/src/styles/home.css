@@ -7,6 +7,18 @@
     background-attachment: fixed;
     color: white;
   }
+  .home{
+      height: 100vh;
+      width: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+  
+  
+
   .header {
     height: 170px;
     margin-top: 10px;
@@ -62,9 +74,9 @@
   }
 
   .actions {
+    bottom: -50px;
     display: flex;
     position: relative;
-    bottom: -50px;
     margin: 0 30px;
     justify-content: center;
   }
@@ -107,5 +119,6 @@
     text-align: center;
     position: relative;
     font-size: 80px;
+    margin-top: 0%;
   }
   

@@ -6,27 +6,7 @@ import webcon from '../styles/ICON.png'
 
 const HomePage = () => {
   return (
-    <div className="main">
-    <div className="about-page">
-      <div className="header">
-        <li>
-        <ul className="title"><a><Link to='/Home'><img src={webcon} style={{height:'110px'}}/>HashChain</Link></a></ul>
-        <ul className="subhead">"A mathematical framework that is free of politics and human error"</ul></li>
-        <div className="navbar">
-          <ul>
-            <li><a><Link to="/about_us">
-              About Us
-            </Link></a></li>
-            <li><a><Link to="/contact_us">
-              Contact Us
-            </Link></a></li>
-            <li><a><Link to="/about_project">
-              About Project
-            </Link></a></li>
-          </ul>
-        </div>
-      </div>
-      </div>
+    <div className="home">
       <div className="Aboutinfo">
       <h1>About Project</h1>
       <p>Welcome to Hashchain - the innovative supply chain website created by a team of high school students.</p>

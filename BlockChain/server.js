@@ -31,6 +31,7 @@ app.get('/login/:cred', (req, res) => {
     }
     else{
         console.log(creds)
+        console.log("Login failed")
         res.send('false')
     }
 })

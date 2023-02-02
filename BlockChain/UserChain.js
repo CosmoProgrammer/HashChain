@@ -34,7 +34,9 @@ class UserChain extends BlockChain {
 
     verifyUser(username,password){
         let user = this.findUser(username)
-        if(!user){ return false; }
+        if(!user){
+            console.log("can't let you in")
+             return false; }
         let hashedSaltedPassword = SHA256(password)
         if(hashedSaltedPassword == user.password.toString()) {
             return true

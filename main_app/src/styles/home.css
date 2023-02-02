@@ -19,15 +19,17 @@
     background: transparent;
   }
   
-  .title {
-    font-size: 45px;
-    font: bolder;
-
+  .header li ul a {
+    font-size: 80px;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    text-decoration: none;
   }
   
   .subhead {
     font-size: 15px;
-    margin-bottom: 100px;
+    
   }
   
   .navbar ul li{
@@ -60,30 +62,49 @@
 
   .actions {
     display: flex;
-    margin: 0 20px;
+    position: relative;
+    bottom: -50px;
+    margin: 0 30px;
     justify-content: center;
   }
   
-  .scan-button,
-  .search-button {
+  
+  .search-button,
+  .scan-button {
     margin: 20px;
     padding: 15px 30px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #0088ff;
+    background-color: #1500ff;
+    border-color: #ffffff;
+    border-width: 5px;
     color: #fff;
     border-radius: 30px;
     text-decoration: none;
+    transition: 0.5s;
   }
   
-  .scan-button:hover,
-  .search-button:hover {
-    background-color: #a2d0fe;
+  .search-button:hover,
+  .scan-button:hover {
+    background-color: transparent;
+    border-color: #fff;
+    border-width: 5px;
     cursor: pointer;
   }
 
   .description{
     position: absolute;
     bottom: 10px;
+  }
+
+  .Aboutinfo{
+    text-align: center;
+    position: relative;
+    font-size: 23px;
+  }
+  .Aboutinfo h1{
+    text-align: center;
+    position: relative;
+    font-size: 80px;
   }
   

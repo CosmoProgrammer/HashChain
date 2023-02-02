@@ -30,6 +30,7 @@ function Login(){
       }
     }
 return (<>
+<div className="home">
   <div className="form">
     <form onSubmit={HandleOnSubmit}>
       <div className="login__input">
@@ -45,6 +46,7 @@ return (<>
       </div>
       </form> 
       <Button block size='lg' type='submit' disabled={!validateForm()}>Login</Button>
+</div>
 </div>
 </>);
 

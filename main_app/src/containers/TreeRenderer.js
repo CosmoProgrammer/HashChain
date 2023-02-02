@@ -19,7 +19,7 @@ const TreeRenderer = (props) => {
         if(pastSearches[0][0] !== data.id){
           pastSearches.unshift([data.id,data.name]);
         }
-        if(pastSearches.length > 10){
+        if(pastSearches.length > 5){
           pastSearches.pop()
         }
         localStorage["items"] = JSON.stringify(pastSearches);

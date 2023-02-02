@@ -5,7 +5,7 @@ import "../styles/home.css";
 import webcon from '../styles/ICON.png'
 
 const HomePage = () => {
-  return (<>
+  return (
     <div className="main">
     <div className="home-page">
       <div className="header">
@@ -41,8 +41,7 @@ const HomePage = () => {
         </p>
       </div>
     </div>
-    <br />
-    </>
+    </div>
   );
 };
 

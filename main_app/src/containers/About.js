@@ -7,24 +7,18 @@ import webcon from '../styles/ICON.png'
 const HomePage = () => {
   return (
     <div className="home">
-    <div>
-      <div className="actions">
-          <Link to="/qr" className="search-button">
-            Scan QR Code
-          </Link>
-          <Link to="/search" className="search-button">
-            Search by ID
-          </Link>
+      <div className="Aboutinfo">
+      <h1>About Us</h1>
+      <p>Supply Chain
+      </p>
       </div>
-      <History />
-    </div>
+      <div>
         <p className="description">
           Powered by blockchain technology for end-to-end transparency and
           security
         </p>
-
-</div>
-
+      </div>
+    </div>
   );
 };
 

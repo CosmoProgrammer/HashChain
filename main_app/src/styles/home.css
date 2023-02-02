@@ -1,11 +1,24 @@
    .main{
-    height: 100vh;
+    height: auto;
     width: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: white;
   }
+  .home{
+      height: 100vh;
+      width: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+  
+  
+
   .header {
     height: 170px;
     margin-top: 10px;
@@ -19,15 +32,17 @@
     background: transparent;
   }
   
-  .title {
-    font-size: 45px;
-    font: bolder;
-
+  .header li ul a {
+    font-size: 80px;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    text-decoration: none;
   }
   
   .subhead {
     font-size: 15px;
-    margin-bottom: 100px;
+    
   }
   
   .navbar ul li{
@@ -59,31 +74,51 @@
   }
 
   .actions {
+    bottom: -50px;
     display: flex;
-    margin: 0 20px;
+    position: relative;
+    margin: 0 30px;
     justify-content: center;
   }
   
-  .scan-button,
-  .search-button {
+  
+  .search-button,
+  .scan-button {
     margin: 20px;
     padding: 15px 30px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #0088ff;
+    background-color: #1500ff;
+    border-color: #ffffff;
+    border-width: 5px;
     color: #fff;
     border-radius: 30px;
     text-decoration: none;
+    transition: 0.5s;
   }
   
-  .scan-button:hover,
-  .search-button:hover {
-    background-color: #a2d0fe;
+  .search-button:hover,
+  .scan-button:hover {
+    background-color: transparent;
+    border-color: #fff;
+    border-width: 5px;
     cursor: pointer;
   }
 
   .description{
-    position: absolute;
-    bottom: 10px;
+    position: relative;
+    bottom: 0px;
+  }
+
+  .Aboutinfo{
+    text-align: center;
+    position: relative;
+    font-size: 23px;
+  }
+  .Aboutinfo h1{
+    text-align: center;
+    position: relative;
+    font-size: 80px;
+    margin-top: 0%;
   }
   

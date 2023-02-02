@@ -44,7 +44,7 @@ return (<>
           onChange={(p)=>setPassword(p.target.value)} required/>
       </div>
       </form> 
-      //make button for submit
+      <Button block size='lg' type='submit' disabled={!validateForm()}>Login</Button>
 </div>
 </>);
 

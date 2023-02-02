@@ -7,6 +7,8 @@ import Tree from './containers/Tree';
 import About from './containers/About';
 import TreeRendererRenderer from './containers/TreeRendererRenderer'
 import QrScanner from './containers/QRScanner';
+import AboutProj from './containers/AboutProj';
+import Contact from './containers/Contact';
 import HomePage from './containers/Home';
 import EnterID from './containers/EnterID';
 import NoPageFound from './containers/NoPageFound';
@@ -52,7 +54,9 @@ function App() {
         <Route path="/home" exact element={ <HomePage /> } />
         <Route path="/qr" exact element={ <QrScanner /> } />
         <Route path="/search" exact element={ <EnterID /> } />
-        <Route path="/about" exact element={ <About/>} />
+        <Route path="/about_us" exact element={ <About/>} />        
+        <Route path="/contact_us" exact element={ <About/>} />
+        <Route path="/about_project" exact element={ <About/>} />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />
       </Switch>

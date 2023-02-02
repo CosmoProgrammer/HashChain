@@ -14,13 +14,13 @@ const HomePage = () => {
         <ul className="subhead">Supply Chain Management System</ul></li>
         <div className="navbar">
           <ul>
-            <li><a><Link to="/qr">
+            <li><a><Link to="/about_us">
               About Us
             </Link></a></li>
-            <li><a><Link to="/search">
+            <li><a><Link to="/contact_us">
               Contact Us
             </Link></a></li>
-            <li><a><Link to="/search">
+            <li><a><Link to="/about_project">
               About Project
             </Link></a></li>
           </ul>

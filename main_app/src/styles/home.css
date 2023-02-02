@@ -63,7 +63,7 @@
   .actions {
     display: flex;
     position: relative;
-    bottom: -20px;
+    bottom: -50px;
     margin: 0 30px;
     justify-content: center;
   }

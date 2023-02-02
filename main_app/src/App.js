@@ -9,6 +9,7 @@ import QrScanner from './containers/QRScanner';
 import HomePage from './containers/Home';
 import EnterID from './containers/EnterID';
 import NoPageFound from './containers/NoPageFound';
+import Ribbon from './containers/Ribbon';
 
 function App() { 
     const item = {
@@ -44,6 +45,7 @@ function App() {
     };
     return (
       <>
+      <Ribbon />
       <Switch>
         <Route path="/" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />

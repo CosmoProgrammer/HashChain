@@ -7,8 +7,13 @@ import webcon from '../styles/ICON.png'
 const HomePage = () => {
   return (
     <div className="home">
-      <div className="Aboutinfo">
+      <div className="Contact">
       <h1>Contact Us</h1>
+      <ul>
+        <a href="mailto:pkd560010@gmail.com"></a>
+        <a href="tel:9663294606"></a>
+
+      </ul>
       </div>
       <div>
         <p className="description">

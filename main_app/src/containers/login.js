@@ -18,11 +18,11 @@ function Login(){
       var credentials = {'username':username,'password':password};
       const response = await fetch('http://localhost:7793/login/'+JSON.stringify(credentials));
 
-      if(response){
+      if(response.responseText){
         console.log(Response)
         toast.success("Success Notification",{position:toast.POSITION.TOP_RIGHT});
         localStorage.setItem('authenticated',true);
-        navigate('/home/')
+        navigate('/home/');
       }
       else{ 
          navigate('http://localhost:7793/')
@@ -33,19 +33,21 @@ return (<>
 <div className="home">
   <div className="form">
     <form onSubmit={HandleOnSubmit}>
-      <div className="login__input">
+      <div className="input-container">
         <label>Username</label>
         <input type="text" name="username"
           onChange={(u)=>setUsername(u.target.value)} required/>
         
       </div>
-      <div className="login_password">
+      <div className="input-container">
           <label>Password</label>
           <input type="password" name="password" 
           onChange={(p)=>setPassword(p.target.value)} required/>
       </div>
       </form> 
-      <Button block size='lg' type='submit' disabled={!validateForm()}>Login</Button>
+      <div className="button-container">
+        <input type="submit"/>
+      </div>
 </div>
 </div>
 </>);

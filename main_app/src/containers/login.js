@@ -32,24 +32,30 @@ function Login(props){
     }
 
 //JSX-need someone else to work on this
+return (<>
+  <div className="form">
+    <form onSubmit={HandleOnSubmit}>
+      <div className="input-container">
+        <label>Username</label>
+        <input type="text" name="username"
+          onChange={(u)=>setUsername(u.target.value)}
+         required/>
+        
+      </div>
+      <div className="input-container">
+          <label>Password</label>
+          <input type="password" name="password" 
+          onChange={(p)=>setPassword(p.target.value)}
+          required/>
 
-  return (<>
-    <Form onSubmit={HandleOnSubmit}>
-                <Form.Group size="lg" controlId="username" className="mb-3">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control autofocus type="text" value={username} onChange={(u)=>setUsername(u.target.value)}/>
-                </Form.Group>
-                <Form.Group size="lg" controlId="password" className="mb-3">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control autofocus type="password" value={password} onChange={(p)=>setPassword(p.target.value)}/>
-                </Form.Group>
-                <Button block size='lg' type='submit' disabled={!validateForm}>Login</Button>
+      </div>
+      <div className="button-container">
+          <input type="submit" />
+        </div>
+      </form> 
+</div>
+</>);
 
-            </Form>
-
-    </>
-    
-  );
 }
 
 export default Login;

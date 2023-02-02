@@ -7,6 +7,7 @@ import Tree from './containers/Tree';
 import TreeRendererRenderer from './containers/TreeRendererRenderer'
 import QrScanner from './containers/QRScanner';
 import HomePage from './containers/Home';
+import EnterID from './containers/EnterID';
 import NoPageFound from './containers/NoPageFound';
 
 function App() { 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/item/:id" element={ <TreeRendererRenderer /> } />
         <Route path="/home" exact element={ <HomePage /> } />
         <Route path="/qr" exact element={ <QrScanner /> } />
+        <Route path="/search" exact element={ <EnterID /> } />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />
       </Switch>

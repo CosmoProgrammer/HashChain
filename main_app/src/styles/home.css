@@ -1,29 +1,66 @@
-.home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   .main{
     height: 100vh;
-    background-color: #f2f2f2;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
   }
-  
   .header {
-    margin-top: 100px;
+    height: 170px;
+    margin-top: 10px;
     text-align: center;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
   }
   
   .title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 45px;
+    font: bolder;
+
   }
   
-  .description {
-    font-size: 18px;
+  .subhead {
+    font-size: 15px;
     margin-bottom: 100px;
   }
   
+  .navbar ul li{
+    display: inline-block;
+    margin: 0 30px;
+    position: relative;
+  }
+
+  .navbar ul li a {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .navbar ul li::after {
+    content: '';
+    height: 5px;
+    width: 0%;
+    background-color: rgb(176, 176, 255);
+    transition: 0.5s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+  }
+
+  .navbar ul li:hover::after { 
+    width: 100%;
+  }
+
   .actions {
     display: flex;
+    margin: 0 20px;
     justify-content: center;
   }
   
@@ -33,7 +70,7 @@
     padding: 15px 30px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #4f93ce;
+    background-color: #0088ff;
     color: #fff;
     border-radius: 30px;
     text-decoration: none;
@@ -41,7 +78,12 @@
   
   .scan-button:hover,
   .search-button:hover {
-    background-color: #3b78b5;
+    background-color: #a2d0fe;
     cursor: pointer;
+  }
+
+  .description{
+    position: absolute;
+    bottom: 10px;
   }
   

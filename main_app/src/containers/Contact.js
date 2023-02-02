@@ -10,7 +10,7 @@ const HomePage = () => {
     <div className="home-page">
       <div className="header">
         <li>
-        <ul className="title"><img src={webcon} style={{height:'110px'}}/>Supply Chain Management System</ul>
+        <ul className="title"><img src={webcon} style={{height:'110px'}}/>HashChain</ul>
         <ul className="subhead">"A mathematical framework that is free of politics and human error"</ul></li>
         <div className="navbar">
           <ul>

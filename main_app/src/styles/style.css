@@ -31,25 +31,14 @@ input[type="submit"]:hover {
 
 .button-container {
   display: flex;
-  justify-content: center;
+  align-items: center;
   width: auto;
   height: auto;
   border-radius: 8px;
+  bottom: -60px;
 }
 
-.login-form {
-  background-color: rgb(119, 119, 119);
-  padding: 2rem;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
-  border-radius: 8px;
-  width: 40%;
-  height: 50%;
-  align-items: center;
-}
 
-.list-container {
-  display: flex;
-}
 
 .error {
   color: red;
@@ -66,7 +55,7 @@ input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 10px;
+  position: relative;
 }
 body {
   margin: 0;

@@ -23,7 +23,9 @@ function Login(props){
         navigate('/home/')//not valid
       }
       else{ 
+        navigate('http://localhost:7793/')
         const notify = () => toast("Invalid username or password"); 
+        alert(notify)
         //porth put this notify in the tag for invalid
 
 

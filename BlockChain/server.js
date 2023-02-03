@@ -64,10 +64,44 @@ app.get("/getitem/:id", (req, res) => {
 app.post("/combine/:ids/:details", (req, res) => {
     let ids =  req.params.ids.split(',');
     let details = JSON.parse(req.params.details)
+    details.clocation = details.location
+    details.compliance = {}
+    details.compliance.temperature = details.temperature
+    details.compliance.moisture = details.moisture
     console.log(details)
     let idtemp = SupplyChainInstance.combineItems(details, ...ids)
+    //console.log(SupplyChainInstance.chain)
+    console.log(SupplyChainInstance.getItemsAtLocation('New Bakery'))
     SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
-    res.send("Done")
+    res.send("['Done']")
+})
+
+app.post("/convert/:id/:details", (req, res) => {
+    let id =  JSON.parse(req.params.id);
+    let details = JSON.parse(req.params.details)
+    details.clocation =  details.location
+    details.compliance={}
+    details.compliance.temperature = details.temperature
+    details.compliance.moisture = details.moisture
+    console.log(id,details)
+    SupplyChainInstance.convertItem(details, id)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.post("/ship/:id/:details", (req, res) => {
+    let id =  JSON.parse(req.params.id);
+    let details = JSON.parse(req.params.details)
+    SupplyChainInstance.changeItemLocation(id,details)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.post("/sell/:id", (req, res) => {
+    let id =  JSON.parse(req.params.id);
+    SupplyChainInstance.changeItemLocation(id,'false')
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
 })
 
 app.get("/location/:user", (req, res) => {

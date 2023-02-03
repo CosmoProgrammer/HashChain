@@ -1,18 +1,19 @@
 import React from 'react';
 import '../styles/style.css';
+import '../styles/home.css';
 
 function NoPageFound(){
     console.log('No page found');
     return(
-        <div style = {{
+        <div className='home' style = {{
             
                 fontFamily: "newfont1",
                 fontSize: "100px",
                 textAlign: "center",
-                color: "rgb(0,0,0)",
+                color: "rgb(255,255,255)",
                 position:"relative",
         }}>
-            Access Denied
+            AccessDenied
         </div>
     )
 }

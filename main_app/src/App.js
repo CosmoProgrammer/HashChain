@@ -15,6 +15,9 @@ import EnterID from './containers/EnterID';
 import NoPageFound from './containers/NoPageFound';
 import Ribbon from './containers/Ribbon';
 import InventoryRenderer from './containers/InventoryRenderer';
+import QRCreator from './containers/QRCreator';
+import AccessDenied from './containers/AccessDenied';
+import Logout from './containers/Logout';
 
 function App() { 
     const item = {
@@ -52,16 +55,18 @@ function App() {
       <>
       <Ribbon />
       <Switch>
-        <Route path="/" exact element={ <Login /> } />
+        <Route path="/login" exact element={ <Login /> } />
         <Route path="/tree" exact element={ <Tree item={item}/> } />
         <Route path="/item/:id" element={ <TreeRendererRenderer /> } />
-        <Route path="/home" exact element={ <HomePage /> } />
+        <Route path="/" exact element={ <HomePage /> } />
         <Route path="/qr" exact element={ <QrScanner /> } />
         <Route path="/search" exact element={ <EnterID /> } />
         <Route path="/about_us" exact element={ <About/>} />        
         <Route path="/contact_us" exact element={ <Contact/>} />
         <Route path="/about_project" exact element={ <AboutProj/>} />
-        <Route path="/inventorytest" exact element={ <Inventory itemIds={['95f07a8b-8ba5-418e-a15f-990cbd755cf4', '087c4d5d-019c-4228-aace-80f9843f1c11	']}/>} />
+        <Route path='/qrcreator/:id' exact element={ <QRCreator /> } />
+        <Route path="/accessdenied" exact element={ <AccessDenied/>} />
+        <Route path="/logout" exact element={ <Logout/>} />
         <Route exact path="/inventory" element={<PrivateRoute><InventoryRenderer /></PrivateRoute>} />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />

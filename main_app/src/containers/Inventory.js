@@ -4,32 +4,54 @@ import TreeRenderer from "./TreeRenderer";
 import '../styles/Inventory.css'
 
 const Inventory = ({itemIds}) => {
-    console.log("HI")
-    console.log(itemIds)
+    //console.log("HI")
+    //console.log(itemIds)
     const navigate = useNavigate()
     const [selectedIds, setSelectedIds] = useState([]);
 
-    const handleConvert = (id) => {
-        
+    const handleConvert = async (id) => {
+        //console.log("HIIIII")
+        let newDetails = generatePopupForm()
+        newDetails.location = localStorage.getItem('username')
+        //console.log(newDetails)
+        const response = await fetch(`http://localhost:7793/convert/${JSON.stringify(id)}/${JSON.stringify(newDetails)}`, {method: 'POST'});
+        //const data = await response.json();
+        //console.log(data)
+        window.location.href = window.location.href;
     }
 
-    const handleShip = (id) => {
+    const handleShip = async (id) => {
+        //console.log("HIIIII")
+        let location = prompt("Enter the location:- ")
+        const response = await fetch(`http://localhost:7793/ship/${JSON.stringify(id)}/${JSON.stringify(location)}`, {method: 'POST'});
+        //const data = await response.json();
+        //console.log(data)
+        window.location.href = window.location.href;
+    }
 
+    const handleSell = async (id) => {
+        //console.log("HIIIII")
+        const response = await fetch(`http://localhost:7793/sell/${JSON.stringify(id)}`, {method: 'POST'});
+        //const data = await response.json();
+        //console.log(data)
+        window.location.href = window.location.href;
     }
 
     const handleCombine = async () => {
-        console.log("HI")
+        //console.log("HI")
         console.log(selectedIds)
         let newDetails = generatePopupForm()
         newDetails.location = localStorage.getItem('username')
         console.log(newDetails)
         const response = await fetch(`http://localhost:7793/combine/${selectedIds}/${JSON.stringify(newDetails)}`, {method: 'POST'});
-        const data = await response.json();
-        window.location.reload(true)
+        //const data = await response.json();
+        //console.log(data)
+        window.location.href = window.location.href;
     }
 
 
     const handleSelect = (id) => {
+        
         setSelectedIds(prevIds => {
             if (prevIds.includes(id)) {
                 return prevIds.filter(selectedId => selectedId !== id);
@@ -44,7 +66,7 @@ const Inventory = ({itemIds}) => {
                 <h2 className="inventory-title">Inventory</h2>
                 <div className="item-card-container">
                     {itemIds.map((id) => (
-                        <Card id={id} onSelect={() => handleSelect(id)} handleConvert={handleConvert} handleShip={handleShip} selected={selectedIds.includes(id)}/>
+                        <Card id={id} onSelect={() => handleSelect(id)} handleConvert={() => handleConvert(id)} handleShip={() => handleShip(id)} handleSell={() => handleSell(id)} handleselected={selectedIds.includes(id)}/>
                     ))}
                     {selectedIds.length > 1 && (
                         <button onClick={handleCombine}>Combine</button>
@@ -55,13 +77,14 @@ const Inventory = ({itemIds}) => {
     )
 }
 
-const Card = ({id, onSelect, handleConvert, handleShip, selected}) => {
+const Card = ({id, onSelect, handleConvert, handleShip, handleSell, selected }) => {
     return(
         <div className={`item-card${selected ? 'true' : ''}`}>
             <TreeRenderer id={id} />
             <div className="item-card-btns">
                 <button className="item-card-btn" onClick={() => handleConvert(id)}>Convert</button>
                 <button className="item-card-btn" onClick={() => handleShip(id)}>Ship</button>
+                <button className="item-card-btn" onClick={() => handleSell(id)}>Sell</button>
                 <button className="item-card-btn" onClick={onSelect}>Select</button>
             </div>
         </div>
@@ -88,5 +111,6 @@ const generatePopupForm = () => {
   
     return formData;
 };  
+
 
 export default Inventory;

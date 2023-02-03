@@ -16,8 +16,9 @@ var UserChainInstance = new UserChain
 
 SupplyChainInstance.retrieveBlockChainFromFile('SupplyChain.json')
 
-let id1 = UserChainInstance.addUser({username:'Anirudh', password:'qwerty', 'deposit':20})
-let id2 = UserChainInstance.addUser({username:"Laaksh", password: '123456','deposit':10})
+let id1 = UserChainInstance.addUser({username:'New Bakery', password:'bakery123', 'deposit':20})
+let id2 = UserChainInstance.addUser({username:"Peril Farm", password: 'farm123','deposit':10})
+let id3 = UserChainInstance.addUser({username: "Mariata's Rice Refinary", password: 'refining123', 'deposit':10})
 
 app.get('/login/:cred', (req, res) => {   
     var tcreds = req.params.cred
@@ -85,6 +86,19 @@ app.post("/convert/:id/:details", (req, res) => {
     details.compliance.moisture = details.moisture
     console.log(id,details)
     SupplyChainInstance.convertItem(details, id)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.post("/add/:details", (req, res) => {
+    let details = JSON.parse(req.params.details)
+    console.log("ADD")
+    details.clocation =  details.location
+    details.compliance={}
+    details.compliance.temperature = details.temperature
+    details.compliance.moisture = details.moisture
+    console.log(details)
+    SupplyChainInstance.addItem(details)
     SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
     res.send("['Done']")
 })

@@ -4,20 +4,35 @@ import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast,Bounce} from 'react-toastify';
 
-
 function Login(){
-
+    const toastID = React.useRef(null);
     const showSuccessMessage = () => {
-      toast.success("Succesfully Logged in!",{
+        if(!toast.isActive(toastID.current)){
+        toastID.current = toast.success("Succesfully Logged in!",{
         position:toast.POSITION.TOP_RIGHT,
         transition: Bounce,
+        toastID:toastID
       });
     }
+    }
     const showErrorMessage =()=>{
-      toast.error('Enter valid credentials!',{
+      if(!toast.isActive(toastID.current)){
+        toastID.current=toast.error('Enter valid credentials!',{
         position:toast.POSITION.TOP_RIGHT,
         transition: Bounce,
+        toastId:toastID
       })
+    }
+    }
+    const showInfo =() => {
+      if(!toast.isActive(toastID.current)){
+        toastID.current = toast.info("Please fill out the fields!",{
+        position:toast.POSITION.TOP_RIGHT,
+        transition: Bounce,
+        toastID:toastID
+      });
+    }
+
     }
 
     const navigate = useNavigate();
@@ -26,12 +41,10 @@ function Login(){
     const [submitted,setSubmitted] = useState(false);
 
     function validateForm(){
-      return username.length >0 && password.length > 0;
+      return username.length >0 || password.length > 0;
     }
-    if(!validateForm){
-        toast.info("Please fill out the fields!",{
-        position:toast.POSITION.TOP_RIGHT,
-        transition: Bounce,});
+    if(!validateForm()){
+      showInfo();
     }
 
     async function HandleOnSubmit(event){
@@ -42,11 +55,7 @@ function Login(){
       const data = await response.json();
 
       if(data){
-
-        toast.success("Succesfully Logged in!",{
-        position:toast.POSITION.TOP_RIGHT,
-        transition: Bounce});
-
+        showSuccessMessage();
         setSubmitted(true);
         localStorage.setItem('username',username);
         localStorage.setItem('authenticated',true);
@@ -55,12 +64,7 @@ function Login(){
 
       }
       else{
-
-      toast.error('Enter valid credentials!',{
-        position:toast.POSITION.TOP_RIGHT,
-        transition: Bounce,
-      })
-
+        showErrorMessage();
         localStorage.setItem('authenticated',false);
         navigate('/accessdenied');
       }
@@ -86,6 +90,7 @@ return (<>
           onChange={(p)=>setPassword(p.target.value)} required/>
       </div>
       <div className="button-container">
+        {submitted ? showSuccessMessage : showErrorMessage}
         <input type="submit"/>
       </div>
       <ToastContainer theme="dark"/>

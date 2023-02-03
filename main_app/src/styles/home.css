@@ -8,25 +8,50 @@
     color: white;
     animation: animation1;
   }
+
+
+  .icon{
+    z-index: -1;
+    position: relative;
+  }
+
   .home{
       height: 100vh;
-      width: 100%;
+      width: 100%;      
       background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       animation-name: animation1;
-      animation-duration: 1s;
+      animation-duration: 2s;
       color: white;
     }
-  
-  
+
+    .home div{
+      animation-name: move;
+      animation-duration: 2s;
+    }
+
+    @keyframes animation3 {
+      0% {left: 645px;}
+      50% {left: 645px;}
+      100% {left: 0px;}
+    }
+
+    @keyframes animation4 {
+      0% {color: transparent;}
+      50% {color: transparent;}
+      100% {color: white;}
+    }
 
   .header {
     height: 170px;
+    left: 0%;
     margin-top: 10px;
     text-align: center;
     position: relative;
+    animation-name: animation3;
+    animation-duration: 2s;    
     width: 100%;
     margin: auto;
     display: flex;
@@ -38,6 +63,8 @@
   .header li ul a {
     font-size: 80px;
     font-weight: bolder;
+    animation: animation4;
+    animation-duration: 4s;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
     text-decoration: none;
@@ -45,7 +72,8 @@
   
   .subhead {
     font-size: 15px;
-    
+    animation: animation4;
+    animation-duration: 4s;
   }
   
   .navbar ul li{
@@ -56,6 +84,8 @@
 
   .navbar ul li a {
     font-size: 18px;
+    animation: animation4;
+    animation-duration: 4s;
     font-weight: bold;
     color: rgb(255, 255, 255);
     text-decoration: none;
@@ -77,8 +107,8 @@
   }
 
   @keyframes animation1{
-    0%{color: transparent;}
-    100%{color: #ddd}
+    0%{color: transparent; height: 8000px;}
+    100%{color: #ddd; height: 100vh;}
   }
 
   .actions {

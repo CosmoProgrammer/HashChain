@@ -14,6 +14,8 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      animation-name: animation1;
+      animation-duration: 1s;
       color: white;
     }
   
@@ -63,7 +65,7 @@
     height: 5px;
     width: 0%;
     background-color: rgb(176, 176, 255);
-    transition: 0.5s;
+    transition: 0.35s all ease-in-out;
     position: absolute;
     left: 0;
     bottom: -5px;
@@ -71,6 +73,11 @@
 
   .navbar ul li:hover::after { 
     width: 100%;
+  }
+
+  @keyframes animation1{
+    0%{color: transparent;}
+    100%{color: #ddd}
   }
 
   .actions {
@@ -94,7 +101,7 @@
     color: #fff;
     border-radius: 30px;
     text-decoration: none;
-    transition: 0.5s;
+    transition: 0.35s all ease-in-out;
   }
   
   .search-button:hover,
@@ -109,7 +116,6 @@
     position: relative;
     bottom: 0px;
   }
-
   .Aboutinfo{
     text-align: center;
     position: relative;
@@ -121,4 +127,7 @@
     font-size: 80px;
     margin-top: 0%;
   }
+    
+
+    
   

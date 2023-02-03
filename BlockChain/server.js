@@ -61,4 +61,60 @@ app.get("/getitem/:id", (req, res) => {
     res.send(item);
   });  
 
+app.post("/combine/:ids/:details", (req, res) => {
+    let ids =  req.params.ids.split(',');
+    let details = JSON.parse(req.params.details)
+    details.clocation = details.location
+    details.compliance = {}
+    details.compliance.temperature = details.temperature
+    details.compliance.moisture = details.moisture
+    console.log(details)
+    let idtemp = SupplyChainInstance.combineItems(details, ...ids)
+    //console.log(SupplyChainInstance.chain)
+    console.log(SupplyChainInstance.getItemsAtLocation('New Bakery'))
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.post("/convert/:id/:details", (req, res) => {
+    let id =  JSON.parse(req.params.id);
+    let details = JSON.parse(req.params.details)
+    details.clocation =  details.location
+    details.compliance={}
+    details.compliance.temperature = details.temperature
+    details.compliance.moisture = details.moisture
+    console.log(id,details)
+    SupplyChainInstance.convertItem(details, id)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.post("/ship/:id/:details", (req, res) => {
+    let id =  JSON.parse(req.params.id);
+    let details = JSON.parse(req.params.details)
+    SupplyChainInstance.changeItemLocation(id,details)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.post("/sell/:id", (req, res) => {
+    let id =  JSON.parse(req.params.id);
+    SupplyChainInstance.changeItemLocation(id,'false')
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
+app.get("/location/:user", (req, res) => {
+    let user = req.params.user
+    let items = SupplyChainInstance.getItemsAtLocation(user)
+    let itemids = []
+    for (let i = 0; i < items.length; i++){
+        itemids.push(items[i].id)
+    }
+    //let details = SupplyChainInstance.getItemsDetails(itemIds)
+    console.log(itemids)
+    res.send(itemids)
+})
+
+
 app.listen(port, () => { console.log(`Listening at http://localhost:${port}`) });

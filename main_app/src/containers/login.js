@@ -56,6 +56,10 @@ function Login(){
     }
 
 return (<>
+<div className="home">
+<div className="Aboutinfo">
+      <h1>Sign In</h1>
+      </div>
   <div className="form">
     <form onSubmit={HandleOnSubmit}>
       <div className="input-container">
@@ -64,7 +68,7 @@ return (<>
           onChange={(u)=>setUsername(u.target.value)} required/>
         
       </div>
-      <div className="input-container">
+      <div className="password-container">
           <label>Password</label>
           <input type="password" name="password" 
           onChange={(p)=>setPassword(p.target.value)} required/>
@@ -72,6 +76,10 @@ return (<>
         <button onClick={submitted ? showSuccessMessage:showErrorMessage}>submit</button> 
       <ToastContainer />
       </form> 
+      <div className="button-container">
+        <input type="submit"/>
+      </div>
+</div>
 </div>
 </>);
 

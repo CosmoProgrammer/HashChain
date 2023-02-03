@@ -13,7 +13,6 @@ import desc from '../styles/desc icon.png'
 
 const Tree = ({ item }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };

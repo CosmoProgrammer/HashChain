@@ -16,14 +16,14 @@ const Ribbon = () => {
         <ul className="subhead">"A mathematical framework that is free of politics and human error"</ul></li>
         <div className="navbar">
           <ul>
+          <li><a><Link to="/about_project">
+              About Project
+            </Link></a></li>
             <li><a><Link to="/about_us">
               About Us
             </Link></a></li>
             <li><a><Link to="/contact_us">
               Contact Us
-            </Link></a></li>
-            <li><a><Link to="/about_project">
-              About Project
             </Link></a></li>
             <li><a><Link to="/login">
               Login
@@ -44,14 +44,14 @@ const Ribbon = () => {
         <ul className="subhead">"A mathematical framework that is free of politics and human error"</ul></li>
         <div className="navbar">
           <ul>
+          <li><a><Link to="/about_project">
+              About Project
+            </Link></a></li>
             <li><a><Link to="/about_us">
               About Us
             </Link></a></li>
             <li><a><Link to="/contact_us">
               Contact Us
-            </Link></a></li>
-            <li><a><Link to="/about_project">
-              About Project
             </Link></a></li>
             <li><a><Link to='/logout'>
               Logout

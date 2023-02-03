@@ -15,6 +15,7 @@ import EnterID from './containers/EnterID';
 import NoPageFound from './containers/NoPageFound';
 import Ribbon from './containers/Ribbon';
 import InventoryRenderer from './containers/InventoryRenderer';
+import QRCreator from './containers/QRCreator';
 
 function App() { 
     const item = {
@@ -61,7 +62,7 @@ function App() {
         <Route path="/about_us" exact element={ <About/>} />        
         <Route path="/contact_us" exact element={ <Contact/>} />
         <Route path="/about_project" exact element={ <AboutProj/>} />
-        <Route path="/inventorytest" exact element={ <Inventory itemIds={['95f07a8b-8ba5-418e-a15f-990cbd755cf4', '087c4d5d-019c-4228-aace-80f9843f1c11	']}/>} />
+        <Route path='/qrcreator/:id' exact element={ <QRCreator /> } />
         <Route exact path="/inventory" element={<PrivateRoute><InventoryRenderer /></PrivateRoute>} />
         <Route exact path="/supplynode" element={<PrivateRoute><NoPageFound /></PrivateRoute>} />
         <Route path='*' element={< NoPageFound/>} />

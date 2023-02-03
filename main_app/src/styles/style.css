@@ -5,7 +5,7 @@
 
 input[type="text"],
 input[type="password"] {
-  width: 80%;
+  width: 70%;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -18,7 +18,7 @@ input[type="password"] {
   gap: 8px;
   position: relative;
   bottom: -50px;
-  left: 100px;
+  left: 210px;
 }
 
 .password-container{

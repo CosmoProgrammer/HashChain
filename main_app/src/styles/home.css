@@ -8,27 +8,33 @@
     color: white;
   }
 
+
+  .icon{
+    z-index: -1;
+    position: relative;
+  }
+
   .home{
       height: 100vh;
-      width: 100%;
+      width: 100%;      
       background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       animation-name: animation1;
-      animation-duration: 1s;
+      animation-duration: 2s;
       color: white;
     }
 
-    @keyframes animation3 {
-      0% {height: 720px; left: 600px;}
-      50% {height: 720px; left: 600px;}
-      100% {height: 170px; left: 0px;}
+    .home div{
+      animation-name: move;
+      animation-duration: 2s;
     }
 
-    @keyframes changeSize {
-      0% {size: 110%;}
-      100% {size: 100%;}
+    @keyframes animation3 {
+      0% {left: 645px;}
+      50% {left: 645px;}
+      100% {left: 0px;}
     }
 
     @keyframes animation4 {
@@ -44,7 +50,7 @@
     text-align: center;
     position: relative;
     animation-name: animation3;
-    animation-duration: 2s;
+    animation-duration: 2s;    
     width: 100%;
     margin: auto;
     display: flex;
@@ -100,8 +106,8 @@
   }
 
   @keyframes animation1{
-    0%{color: transparent;}
-    100%{color: #ddd}
+    0%{color: transparent; height: 8000px;}
+    100%{color: #ddd; height: 100vh;}
   }
 
   .actions {

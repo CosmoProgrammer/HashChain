@@ -8,9 +8,14 @@
   100% {background-color:white; border: 1px solid rgba(0, 0, 0, 0.2);color: black;}
 }
 
+@keyframes animation3 {
+  0% {background-color: transparent; border: transparent; color: transparent;}
+  100% {background-color:#1500ff; border: 1px solid rgba(0, 0, 0, 0.2);color: black;}
+}
+
 input[type="text"],
 input[type="password"] {
-  width: 70%;
+  width: 80%;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);  
   border-radius: 8px;
@@ -25,7 +30,7 @@ input[type="password"] {
   gap: 8px;
   position: relative;
   bottom: -50px;
-  left: 210px;
+  left: 100px;
 }
 
 .password-container{

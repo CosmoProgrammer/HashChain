@@ -1,3 +1,16 @@
+.background{
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation-name: animation1;
+  animation-duration: 1s;
+  color: white;
+}
+
+
 .item-container {
     width: 100%;
     border: 1px solid #ccc;
@@ -7,6 +20,7 @@
     color: black;
     background-image: linear-gradient(to right,rgb(176,176,255),rgb(49, 135, 255),rgb(0,0,0));
     font-size: large;
+
   }
   
   .item-header {
@@ -21,7 +35,7 @@
     color: black;
     box-shadow: inset rgb(0, 0, 0);
     text-size-adjust: initial;
-    transition: 0.5s;
+    transition: 0.35s all ease-in-out;
   }
   
   .item-header:hover{
@@ -69,4 +83,21 @@
   .item-children {
     padding-left: 20px;
   }
-  
+  .qr{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    text-decoration: none;
+    margin: 5px;
+    padding: 5px 20px;
+    background-color: #1500ff;
+    border-color: #ffffff;
+    border-width: 10px;
+    color: #fff;
+    border-radius: 30px;
+    transition: 0.35s all ease-in-out;
+  }
+  .qr:hover{
+    background-color: transparent;
+  }

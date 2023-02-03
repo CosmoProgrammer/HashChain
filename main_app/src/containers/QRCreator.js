@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import QRCode from 'react-qr-code';
-import '../styles/home.css';
-
+import '../styles/item.css'
   
 function QRCreator(props) {
     let id = useParams()
     console.log(id.id)
     return (
-        <div className="home">
+        <div className='home'>
             <br /><br /><br />
         <center>
             {id && (

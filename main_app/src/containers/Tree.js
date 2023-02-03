@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import QRCreator from './QRCreator';
 import { Link } from 'react-router-dom';
 import '../styles/item.css';
-import loc from '../styles/location icon.png';
-import quantity from '../styles/quantity icon.png';
-import cost from '../styles/cost icon.png';
-import temp from '../styles/temperature-icon-png-1.png';
-import moisture from '../styles/moisture-icon-26.jpg';
-import exp from '../styles/exp icon.png';
-import info from '../styles/info icon.jpeg';
-import desc from '../styles/desc icon.png'
+import loc from '../styles/icons/location icon.png';
+import quantity from '../styles/icons/quantity icon.png';
+import cost from '../styles/icons/cost icon.png';
+import temp from '../styles/icons/temperature-icon-png-1.png';
+import moisture from '../styles/icons/moisture-icon-26.jpg';
+import exp from '../styles/icons/exp icon.png';
+import info from '../styles/icons/info icon.jpeg';
+import desc from '../styles/icons/desc icon.png'
 
 const Tree = ({ item }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };

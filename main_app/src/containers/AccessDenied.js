@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/style.css';
+import '../styles/home.css';
 
 function NoPageFound(){
     console.log('No page found');
@@ -12,7 +13,7 @@ function NoPageFound(){
                 color: "rgb(255,255,255)",
                 position:"relative",
         }}>
-            No page found
+            AccessDenied
         </div>
     )
 }

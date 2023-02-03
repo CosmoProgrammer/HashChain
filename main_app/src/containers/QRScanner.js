@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import QrScanner from "react-qr-scanner";
 import TreeRenderer from './TreeRenderer';
+import bg from '../styles/wp9448982.png'
+import '../styles/home.css';
 
 const QRScanner = () => {
   const [result, setResult] = useState(null);
@@ -18,10 +20,8 @@ const QRScanner = () => {
   };
 
   return (
-    <div style={{verticalAlign: 'middle'}}>
+    <div className="home" style={{verticalAlign: 'middle'}}>
       <fieldset align="center" style={{
-        backgroundColor: '#eeeeee',
-        margin: 'auto',
         verticalAlign: 'middle'
     }}>
       <legend style={{

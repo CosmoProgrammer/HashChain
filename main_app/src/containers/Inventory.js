@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import TreeRenderer from "./TreeRenderer";
 import '../styles/Inventory.css'
+import '../styles/home.css';
 
 const Inventory = ({itemIds}) => {
     //console.log("HI")
@@ -15,6 +16,19 @@ const Inventory = ({itemIds}) => {
         newDetails.location = localStorage.getItem('username')
         //console.log(newDetails)
         const response = await fetch(`http://localhost:7793/convert/${JSON.stringify(id)}/${JSON.stringify(newDetails)}`, {method: 'POST'});
+        //const data = await response.json();
+        //console.log(data)
+        window.location.href = window.location.href;
+    }
+
+    const handleAdd = async (event) => {
+        //console.log("HIIIII")
+        event.preventDefault();
+        console.log("Addings")
+        let newDetails = generatePopupForm()
+        newDetails.location = localStorage.getItem('username')
+        //console.log(newDetails)
+        const response = await fetch(`http://localhost:7793/add/${JSON.stringify(newDetails)}`, {method: 'POST'});
         //const data = await response.json();
         //console.log(data)
         window.location.href = window.location.href;
@@ -61,7 +75,8 @@ const Inventory = ({itemIds}) => {
     }
 
     return(
-        <>
+        <div className="home">
+        <button onClick={handleAdd}>Add Item</button>
             <div className="inventory-container">
                 <h2 className="inventory-title">Inventory</h2>
                 <div className="item-card-container">
@@ -73,7 +88,7 @@ const Inventory = ({itemIds}) => {
                     )}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

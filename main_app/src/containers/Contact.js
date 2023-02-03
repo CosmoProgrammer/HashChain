@@ -11,13 +11,11 @@ const HomePage = () => {
       <div className="Aboutinfo">
       <h1>Contact Us</h1>
       </div>
-      <div>
         <p className="description">
           Powered by blockchain technology for end-to-end transparency and
           security
         </p>
       </div>
-    </div>
   );
 };
 

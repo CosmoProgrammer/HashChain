@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import "../styles/style.css";
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast,Bounce} from 'react-toastify';
 
 
 function Login(){
@@ -10,11 +10,13 @@ function Login(){
     const showSuccessMessage = () => {
       toast.success("Succesfully Logged in!",{
         position:toast.POSITION.TOP_RIGHT,
+        transition: Bounce,
       });
     }
     const showErrorMessage =()=>{
       toast.error('Enter valid credentials!',{
         position:toast.POSITION.TOP_RIGHT,
+        transition: Bounce,
       })
     }
 
@@ -27,11 +29,9 @@ function Login(){
       return username.length >0 && password.length > 0;
     }
     if(!validateForm){
-      const showInfo = () =>{
         toast.info("Please fill out the fields!",{
         position:toast.POSITION.TOP_RIGHT,
-        })
-      }
+        transition: Bounce,});
     }
 
     async function HandleOnSubmit(event){
@@ -39,16 +39,28 @@ function Login(){
 
       var credentials = {'username':username,'password':password};
       const response = await fetch('http://localhost:7793/login/'+JSON.stringify(credentials));
-      console.log(response)
+      const data = await response.json();
 
-      if(response.ok){
+      if(data){
+
+        toast.success("Succesfully Logged in!",{
+        position:toast.POSITION.TOP_RIGHT,
+        transition: Bounce});
+
         setSubmitted(true);
         localStorage.setItem('username',username);
         localStorage.setItem('authenticated',true);
         navigate('/home');
         console.log('Logged in!');
+
       }
       else{
+
+      toast.error('Enter valid credentials!',{
+        position:toast.POSITION.TOP_RIGHT,
+        transition: Bounce,
+      })
+
         localStorage.setItem('authenticated',false);
         navigate('/nopagefound');
       }
@@ -73,12 +85,11 @@ return (<>
           <input type="password" name="password" 
           onChange={(p)=>setPassword(p.target.value)} required/>
       </div>
-        <button onClick={submitted ? showSuccessMessage:showErrorMessage}>submit</button> 
-      <ToastContainer />
-      </form> 
       <div className="button-container">
         <input type="submit"/>
       </div>
+      <ToastContainer theme="dark"/>
+      </form> 
 </div>
 </div>
 </>);

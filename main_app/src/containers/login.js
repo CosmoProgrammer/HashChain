@@ -50,7 +50,7 @@ function Login(){
         setSubmitted(true);
         localStorage.setItem('username',username);
         localStorage.setItem('authenticated',true);
-        navigate('/home');
+        navigate('/');
         console.log('Logged in!');
 
       }
@@ -62,7 +62,7 @@ function Login(){
       })
 
         localStorage.setItem('authenticated',false);
-        navigate('/nopagefound');
+        navigate('/accessdenied');
       }
 
     }

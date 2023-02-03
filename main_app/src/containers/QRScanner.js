@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import QrScanner from "react-qr-scanner";
 import TreeRenderer from './TreeRenderer';
 import bg from '../styles/wp9448982.png'
+import '../styles/home.css';
 
 const QRScanner = () => {
   const [result, setResult] = useState(null);

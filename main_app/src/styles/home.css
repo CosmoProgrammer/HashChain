@@ -14,6 +14,8 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      animation-name: animation1;
+      animation-duration: 1s;
       color: white;
     }
   
@@ -71,6 +73,11 @@
 
   .navbar ul li:hover::after { 
     width: 100%;
+  }
+
+  @keyframes animation1{
+    0%{color: transparent;}
+    100%{color: #ddd}
   }
 
   .actions {

@@ -1,9 +1,22 @@
 .inventory-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../styles/wp9448982.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation-name: animation1;
+  animation-duration: 1s;
+  color: white;
+  align-items: center;
+  margin-top: 0;
+ }
+ .inventory-container h2{
+  margin-top: 0;
+  position: relative;
+  left: 670px;
+ }
+
   .inventory-title {
     font-size: 36px;
     margin-bottom: 20px;

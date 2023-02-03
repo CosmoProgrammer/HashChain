@@ -18,12 +18,13 @@ const Tree = ({ item }) => {
   };
   console.log(item)
   return (
+    <div>
     <div className="item-container">
       <div className="item-header" onClick={toggleExpand}>
         <div className="item-header-text">
           {item.name}      
         </div>
-        <Link to={`/qrcreator/${item.id}`}>Generate QR Code</Link>
+        <Link to={`/qrcreator/${item.id}`} className='qr'>Generate QR Code</Link>
         <div className="item-header-toggle">
             {isExpanded ? '-' : '+'}
         </div>
@@ -80,6 +81,7 @@ const Tree = ({ item }) => {
           )}
         </div>
       )}
+    </div>
     </div>
   );
 };

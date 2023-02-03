@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import QRCode from 'react-qr-code';
+import '../styles/home.css'
   
 function QRCreator(props) {
     let id = useParams()

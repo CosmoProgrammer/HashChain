@@ -19,9 +19,6 @@ const Ribbon = () => {
           <li><a><Link to="/about_project">
               About Project
             </Link></a></li>
-            <li><a><Link to="/about_us">
-              About Us
-            </Link></a></li>
             <li><a><Link to="/contact_us">
               Contact Us
             </Link></a></li>

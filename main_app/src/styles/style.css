@@ -3,12 +3,19 @@
   src: url(../styles/Helvetica.ttf);
 }
 
+@keyframes animation2 {
+  0% {background-color: transparent; border: transparent; color: transparent;}
+  100% {background-color:white; border: 1px solid rgba(0, 0, 0, 0.2);color: black;}
+}
+
 input[type="text"],
 input[type="password"] {
   width: 70%;
   height: 25px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);  
   border-radius: 8px;
+  animation-name: animation2;
+  animation-duration: 1.5s;
   position: relative;
 }
 .input-container,

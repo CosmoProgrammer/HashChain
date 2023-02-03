@@ -12,21 +12,24 @@ const TreeRenderer = (props) => {
         console.log(props)
         const response = await fetch(`http://localhost:7793/getitem/${props.id}`);
         const data = await response.json();
+        console.log(data)
         var pastSearches = [];
         if(localStorage["items"]) {
           pastSearches = JSON.parse(localStorage["items"]);
         }
+        if(pastSearches.length > 0) {
         if(pastSearches[0][0] !== data.id){
           pastSearches.unshift([data.id,data.name]);
         }
         if(pastSearches.length > 5){
           pastSearches.pop()
-        }
+        }}
         localStorage["items"] = JSON.stringify(pastSearches);
         setItem(data);
         setLoading(false);
       } catch (err) {
         setError(err);
+        console.log(err)
         setLoading(false);
       }
     };

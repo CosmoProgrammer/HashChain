@@ -89,6 +89,19 @@ app.post("/convert/:id/:details", (req, res) => {
     res.send("['Done']")
 })
 
+app.post("/add/:details", (req, res) => {
+    let details = JSON.parse(req.params.details)
+    console.log("ADD")
+    details.clocation =  details.location
+    details.compliance={}
+    details.compliance.temperature = details.temperature
+    details.compliance.moisture = details.moisture
+    console.log(details)
+    SupplyChainInstance.addItem(details)
+    SupplyChainInstance.saveBlockChainToFile('SupplyChain.json')
+    res.send("['Done']")
+})
+
 app.post("/ship/:id/:details", (req, res) => {
     let id =  JSON.parse(req.params.id);
     let details = JSON.parse(req.params.details)

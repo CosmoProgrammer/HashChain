@@ -12,6 +12,7 @@ const EnterID = () => {
   };
 
   return (
+    <div className="home">
     <form onSubmit={handleSubmit} className="enter-id-form">
       <input
         type="text"
@@ -24,6 +25,7 @@ const EnterID = () => {
         Go
       </button>
     </form>
+    </div>
   );
 };
 

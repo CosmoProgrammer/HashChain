@@ -6,7 +6,7 @@ function QRCreator(props) {
     let id = useParams()
     console.log(id.id)
     return (
-        <div>
+        <div className='home'>
             <br /><br /><br />
         <center>
             {id && (

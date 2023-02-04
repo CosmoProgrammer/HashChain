@@ -10,6 +10,7 @@ const HomePage = () => {
     <div className="home">
       <div className="Aboutinfo">
       <h1>Contact Us</h1>
+      <p style={{font:'50px'}}>EMAIL: hashchain2023@gmail.com</p>
       </div>
         <p className="description">
           Powered by blockchain technology for end-to-end transparency and

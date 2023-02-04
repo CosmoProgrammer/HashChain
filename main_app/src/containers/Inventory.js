@@ -76,16 +76,16 @@ const Inventory = ({itemIds}) => {
 
     return(
         <div className="home">
-        <button onClick={handleAdd}>Add Item</button>
             <div className="inventory-container">
                 <h2 className="inventory-title">Inventory</h2>
                 <div className="item-card-container">
                     {itemIds.map((id) => (
-                        <Card id={id} onSelect={() => handleSelect(id)} handleConvert={() => handleConvert(id)} handleShip={() => handleShip(id)} handleSell={() => handleSell(id)} handleselected={selectedIds.includes(id)}/>
+                        <Card id={id} onSelect={() => handleSelect(id)} handleConvert={() => handleConvert(id)} handleShip={() => handleShip(id)} handleSell={() => handleSell(id)} selected={selectedIds.includes(id)}/>
                     ))}
                     {selectedIds.length > 1 && (
                         <button onClick={handleCombine}>Combine</button>
                     )}
+                    <button className="additem" onClick={handleAdd}>Add Item</button>
                 </div>
             </div>
         </div>
@@ -93,6 +93,7 @@ const Inventory = ({itemIds}) => {
 }
 
 const Card = ({id, onSelect, handleConvert, handleShip, handleSell, selected }) => {
+    console.log(`Selected is ${selected}`)
     return(
         <div className={`item-card${selected ? 'true' : ''}`}>
             <TreeRenderer id={id} />

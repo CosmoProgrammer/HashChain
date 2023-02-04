@@ -59,6 +59,7 @@ function Login(){
         setSubmitted(true);
         localStorage.setItem('username',username);
         localStorage.setItem('authenticated',true);
+        window.dispatchEvent(new Event('storage'))
         navigate('/');
         console.log('Logged in!');
 

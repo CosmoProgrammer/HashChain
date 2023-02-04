@@ -2,7 +2,7 @@ import {React, useEffect} from "react";
 import { Link } from "react-router-dom";
 import History from "./History";
 import "../styles/home.css";
-import webcon from '../styles/ICON.jpg'
+import webcon from '../styles/ICON.jpg';
 
 const Ribbon = () => {
     
@@ -38,7 +38,7 @@ const Ribbon = () => {
     <div className="about-page">
       <div className="header">
         <li>
-        <ul className="title"><a><Link to='/'><img src={webcon} style={{height:'110px'}}/>HashChain</Link></a></ul>
+        <ul className="title"><a><Link to='/'><img src={webcon} style={{height:'110px', borderRadius:'100%'}}/>HashChain</Link></a></ul>
         <ul className="subhead">"A mathematical framework that is free of politics and human error"</ul></li>
         <div className="navbar">
           <ul>

@@ -14,7 +14,7 @@
  .inventory-container h2{
   margin-top: 0;
   position: relative;
-  left: 820px;
+  text-align: center;
  }
 
   .inventory-title {
@@ -27,21 +27,6 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-
-  .combine{
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 15px;
-    position: relative;
-    color: white;
-    font: 30px;
-    font: bolder;
-  }
-  .combine:hover{
-    cursor: pointer;
-    background-color: transparent;
-  }
-    
   
   .item-card {
     margin: 20px;
@@ -87,7 +72,7 @@
     color: white;
   }
 
-  .additem{
+  .item-card-container button{
     background-color: #007bff;
     padding: 10px 20px;
     border-radius: 10px;
@@ -96,7 +81,7 @@
     font: 30px;
     font: bolder;
   }
-  .additem:hover{
+  .item-card-container button:hover{
     cursor: pointer;
     background-color: transparent;
   }
